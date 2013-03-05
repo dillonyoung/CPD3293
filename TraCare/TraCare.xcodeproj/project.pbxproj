@@ -28,6 +28,10 @@
 		51B2C68616E57B8400B385F6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51B2C65616E57B8300B385F6 /* Foundation.framework */; };
 		51B2C68E16E57B8500B385F6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 51B2C68C16E57B8500B385F6 /* InfoPlist.strings */; };
 		51B2C69116E57B8500B385F6 /* TraCareTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B2C69016E57B8500B385F6 /* TraCareTests.m */; };
+		51B2C6A116E58DDB00B385F6 /* PreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B2C6A016E58DDB00B385F6 /* PreferencesViewController.m */; };
+		51B2C6A416E58E0D00B385F6 /* EnterEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B2C6A316E58E0D00B385F6 /* EnterEntryViewController.m */; };
+		51B2C6A716E58E2800B385F6 /* SummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B2C6A616E58E2800B385F6 /* SummaryViewController.m */; };
+		51B2C6B916E5B99C00B385F6 /* GenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B2C6B816E5B99C00B385F6 /* GenderViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +73,14 @@
 		51B2C68D16E57B8500B385F6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		51B2C68F16E57B8500B385F6 /* TraCareTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TraCareTests.h; sourceTree = "<group>"; };
 		51B2C69016E57B8500B385F6 /* TraCareTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TraCareTests.m; sourceTree = "<group>"; };
+		51B2C69F16E58DDB00B385F6 /* PreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesViewController.h; sourceTree = "<group>"; };
+		51B2C6A016E58DDB00B385F6 /* PreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesViewController.m; sourceTree = "<group>"; };
+		51B2C6A216E58E0D00B385F6 /* EnterEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnterEntryViewController.h; sourceTree = "<group>"; };
+		51B2C6A316E58E0D00B385F6 /* EnterEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnterEntryViewController.m; sourceTree = "<group>"; };
+		51B2C6A516E58E2800B385F6 /* SummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SummaryViewController.h; sourceTree = "<group>"; };
+		51B2C6A616E58E2800B385F6 /* SummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SummaryViewController.m; sourceTree = "<group>"; };
+		51B2C6B716E5B99C00B385F6 /* GenderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenderViewController.h; sourceTree = "<group>"; };
+		51B2C6B816E5B99C00B385F6 /* GenderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenderViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +140,10 @@
 		51B2C65A16E57B8300B385F6 /* TraCare */ = {
 			isa = PBXGroup;
 			children = (
+				51B2C69E16E57C6700B385F6 /* Controllers */,
+				51B2C69D16E57C5D00B385F6 /* Views */,
+				51B2C69C16E57C5700B385F6 /* Models */,
+				51B2C69B16E57C4C00B385F6 /* Images */,
 				51B2C66316E57B8300B385F6 /* TCAppDelegate.h */,
 				51B2C66416E57B8300B385F6 /* TCAppDelegate.m */,
 				51B2C66C16E57B8300B385F6 /* MainStoryboard.storyboard */,
@@ -175,6 +191,42 @@
 				51B2C68C16E57B8500B385F6 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		51B2C69B16E57C4C00B385F6 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		51B2C69C16E57C5700B385F6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		51B2C69D16E57C5D00B385F6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		51B2C69E16E57C6700B385F6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				51B2C69F16E58DDB00B385F6 /* PreferencesViewController.h */,
+				51B2C6A016E58DDB00B385F6 /* PreferencesViewController.m */,
+				51B2C6A216E58E0D00B385F6 /* EnterEntryViewController.h */,
+				51B2C6A316E58E0D00B385F6 /* EnterEntryViewController.m */,
+				51B2C6A516E58E2800B385F6 /* SummaryViewController.h */,
+				51B2C6A616E58E2800B385F6 /* SummaryViewController.m */,
+				51B2C6B716E5B99C00B385F6 /* GenderViewController.h */,
+				51B2C6B816E5B99C00B385F6 /* GenderViewController.m */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,6 +348,10 @@
 				51B2C66516E57B8300B385F6 /* TCAppDelegate.m in Sources */,
 				51B2C67116E57B8300B385F6 /* TCFirstViewController.m in Sources */,
 				51B2C67816E57B8300B385F6 /* TCSecondViewController.m in Sources */,
+				51B2C6A116E58DDB00B385F6 /* PreferencesViewController.m in Sources */,
+				51B2C6A416E58E0D00B385F6 /* EnterEntryViewController.m in Sources */,
+				51B2C6A716E58E2800B385F6 /* SummaryViewController.m in Sources */,
+				51B2C6B916E5B99C00B385F6 /* GenderViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
