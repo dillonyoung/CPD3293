@@ -1,0 +1,491 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		51B2C65516E57B8300B385F6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51B2C65416E57B8300B385F6 /* UIKit.framework */; };
+		51B2C65716E57B8300B385F6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51B2C65616E57B8300B385F6 /* Foundation.framework */; };
+		51B2C65916E57B8300B385F6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51B2C65816E57B8300B385F6 /* CoreGraphics.framework */; };
+		51B2C65F16E57B8300B385F6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 51B2C65D16E57B8300B385F6 /* InfoPlist.strings */; };
+		51B2C66116E57B8300B385F6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B2C66016E57B8300B385F6 /* main.m */; };
+		51B2C66516E57B8300B385F6 /* TCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B2C66416E57B8300B385F6 /* TCAppDelegate.m */; };
+		51B2C66716E57B8300B385F6 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 51B2C66616E57B8300B385F6 /* Default.png */; };
+		51B2C66916E57B8300B385F6 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51B2C66816E57B8300B385F6 /* Default@2x.png */; };
+		51B2C66B16E57B8300B385F6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51B2C66A16E57B8300B385F6 /* Default-568h@2x.png */; };
+		51B2C66E16E57B8300B385F6 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51B2C66C16E57B8300B385F6 /* MainStoryboard.storyboard */; };
+		51B2C67116E57B8300B385F6 /* TCFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B2C67016E57B8300B385F6 /* TCFirstViewController.m */; };
+		51B2C67316E57B8300B385F6 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 51B2C67216E57B8300B385F6 /* first.png */; };
+		51B2C67516E57B8300B385F6 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51B2C67416E57B8300B385F6 /* first@2x.png */; };
+		51B2C67816E57B8300B385F6 /* TCSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B2C67716E57B8300B385F6 /* TCSecondViewController.m */; };
+		51B2C67A16E57B8300B385F6 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 51B2C67916E57B8300B385F6 /* second.png */; };
+		51B2C67C16E57B8300B385F6 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51B2C67B16E57B8300B385F6 /* second@2x.png */; };
+		51B2C68416E57B8400B385F6 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51B2C68316E57B8400B385F6 /* SenTestingKit.framework */; };
+		51B2C68516E57B8400B385F6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51B2C65416E57B8300B385F6 /* UIKit.framework */; };
+		51B2C68616E57B8400B385F6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51B2C65616E57B8300B385F6 /* Foundation.framework */; };
+		51B2C68E16E57B8500B385F6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 51B2C68C16E57B8500B385F6 /* InfoPlist.strings */; };
+		51B2C69116E57B8500B385F6 /* TraCareTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B2C69016E57B8500B385F6 /* TraCareTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		51B2C68716E57B8400B385F6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 51B2C64916E57B8300B385F6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 51B2C65016E57B8300B385F6;
+			remoteInfo = TraCare;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		51B2C65116E57B8300B385F6 /* TraCare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TraCare.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		51B2C65416E57B8300B385F6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		51B2C65616E57B8300B385F6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		51B2C65816E57B8300B385F6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		51B2C65C16E57B8300B385F6 /* TraCare-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TraCare-Info.plist"; sourceTree = "<group>"; };
+		51B2C65E16E57B8300B385F6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		51B2C66016E57B8300B385F6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		51B2C66216E57B8300B385F6 /* TraCare-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TraCare-Prefix.pch"; sourceTree = "<group>"; };
+		51B2C66316E57B8300B385F6 /* TCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCAppDelegate.h; sourceTree = "<group>"; };
+		51B2C66416E57B8300B385F6 /* TCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCAppDelegate.m; sourceTree = "<group>"; };
+		51B2C66616E57B8300B385F6 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		51B2C66816E57B8300B385F6 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		51B2C66A16E57B8300B385F6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		51B2C66D16E57B8300B385F6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		51B2C66F16E57B8300B385F6 /* TCFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCFirstViewController.h; sourceTree = "<group>"; };
+		51B2C67016E57B8300B385F6 /* TCFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCFirstViewController.m; sourceTree = "<group>"; };
+		51B2C67216E57B8300B385F6 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
+		51B2C67416E57B8300B385F6 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
+		51B2C67616E57B8300B385F6 /* TCSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCSecondViewController.h; sourceTree = "<group>"; };
+		51B2C67716E57B8300B385F6 /* TCSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCSecondViewController.m; sourceTree = "<group>"; };
+		51B2C67916E57B8300B385F6 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
+		51B2C67B16E57B8300B385F6 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		51B2C68216E57B8400B385F6 /* TraCareTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TraCareTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		51B2C68316E57B8400B385F6 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		51B2C68B16E57B8500B385F6 /* TraCareTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TraCareTests-Info.plist"; sourceTree = "<group>"; };
+		51B2C68D16E57B8500B385F6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		51B2C68F16E57B8500B385F6 /* TraCareTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TraCareTests.h; sourceTree = "<group>"; };
+		51B2C69016E57B8500B385F6 /* TraCareTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TraCareTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		51B2C64E16E57B8300B385F6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				51B2C65516E57B8300B385F6 /* UIKit.framework in Frameworks */,
+				51B2C65716E57B8300B385F6 /* Foundation.framework in Frameworks */,
+				51B2C65916E57B8300B385F6 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		51B2C67E16E57B8400B385F6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				51B2C68416E57B8400B385F6 /* SenTestingKit.framework in Frameworks */,
+				51B2C68516E57B8400B385F6 /* UIKit.framework in Frameworks */,
+				51B2C68616E57B8400B385F6 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		51B2C64816E57B8300B385F6 = {
+			isa = PBXGroup;
+			children = (
+				51B2C65A16E57B8300B385F6 /* TraCare */,
+				51B2C68916E57B8400B385F6 /* TraCareTests */,
+				51B2C65316E57B8300B385F6 /* Frameworks */,
+				51B2C65216E57B8300B385F6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		51B2C65216E57B8300B385F6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				51B2C65116E57B8300B385F6 /* TraCare.app */,
+				51B2C68216E57B8400B385F6 /* TraCareTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		51B2C65316E57B8300B385F6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				51B2C65416E57B8300B385F6 /* UIKit.framework */,
+				51B2C65616E57B8300B385F6 /* Foundation.framework */,
+				51B2C65816E57B8300B385F6 /* CoreGraphics.framework */,
+				51B2C68316E57B8400B385F6 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		51B2C65A16E57B8300B385F6 /* TraCare */ = {
+			isa = PBXGroup;
+			children = (
+				51B2C66316E57B8300B385F6 /* TCAppDelegate.h */,
+				51B2C66416E57B8300B385F6 /* TCAppDelegate.m */,
+				51B2C66C16E57B8300B385F6 /* MainStoryboard.storyboard */,
+				51B2C66F16E57B8300B385F6 /* TCFirstViewController.h */,
+				51B2C67016E57B8300B385F6 /* TCFirstViewController.m */,
+				51B2C67216E57B8300B385F6 /* first.png */,
+				51B2C67416E57B8300B385F6 /* first@2x.png */,
+				51B2C67616E57B8300B385F6 /* TCSecondViewController.h */,
+				51B2C67716E57B8300B385F6 /* TCSecondViewController.m */,
+				51B2C67916E57B8300B385F6 /* second.png */,
+				51B2C67B16E57B8300B385F6 /* second@2x.png */,
+				51B2C65B16E57B8300B385F6 /* Supporting Files */,
+			);
+			path = TraCare;
+			sourceTree = "<group>";
+		};
+		51B2C65B16E57B8300B385F6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				51B2C65C16E57B8300B385F6 /* TraCare-Info.plist */,
+				51B2C65D16E57B8300B385F6 /* InfoPlist.strings */,
+				51B2C66016E57B8300B385F6 /* main.m */,
+				51B2C66216E57B8300B385F6 /* TraCare-Prefix.pch */,
+				51B2C66616E57B8300B385F6 /* Default.png */,
+				51B2C66816E57B8300B385F6 /* Default@2x.png */,
+				51B2C66A16E57B8300B385F6 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		51B2C68916E57B8400B385F6 /* TraCareTests */ = {
+			isa = PBXGroup;
+			children = (
+				51B2C68F16E57B8500B385F6 /* TraCareTests.h */,
+				51B2C69016E57B8500B385F6 /* TraCareTests.m */,
+				51B2C68A16E57B8500B385F6 /* Supporting Files */,
+			);
+			path = TraCareTests;
+			sourceTree = "<group>";
+		};
+		51B2C68A16E57B8500B385F6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				51B2C68B16E57B8500B385F6 /* TraCareTests-Info.plist */,
+				51B2C68C16E57B8500B385F6 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		51B2C65016E57B8300B385F6 /* TraCare */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 51B2C69416E57B8500B385F6 /* Build configuration list for PBXNativeTarget "TraCare" */;
+			buildPhases = (
+				51B2C64D16E57B8300B385F6 /* Sources */,
+				51B2C64E16E57B8300B385F6 /* Frameworks */,
+				51B2C64F16E57B8300B385F6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TraCare;
+			productName = TraCare;
+			productReference = 51B2C65116E57B8300B385F6 /* TraCare.app */;
+			productType = "com.apple.product-type.application";
+		};
+		51B2C68116E57B8400B385F6 /* TraCareTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 51B2C69716E57B8500B385F6 /* Build configuration list for PBXNativeTarget "TraCareTests" */;
+			buildPhases = (
+				51B2C67D16E57B8400B385F6 /* Sources */,
+				51B2C67E16E57B8400B385F6 /* Frameworks */,
+				51B2C67F16E57B8400B385F6 /* Resources */,
+				51B2C68016E57B8400B385F6 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				51B2C68816E57B8400B385F6 /* PBXTargetDependency */,
+			);
+			name = TraCareTests;
+			productName = TraCareTests;
+			productReference = 51B2C68216E57B8400B385F6 /* TraCareTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		51B2C64916E57B8300B385F6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = TC;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Dillon Young";
+			};
+			buildConfigurationList = 51B2C64C16E57B8300B385F6 /* Build configuration list for PBXProject "TraCare" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 51B2C64816E57B8300B385F6;
+			productRefGroup = 51B2C65216E57B8300B385F6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				51B2C65016E57B8300B385F6 /* TraCare */,
+				51B2C68116E57B8400B385F6 /* TraCareTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		51B2C64F16E57B8300B385F6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				51B2C65F16E57B8300B385F6 /* InfoPlist.strings in Resources */,
+				51B2C66716E57B8300B385F6 /* Default.png in Resources */,
+				51B2C66916E57B8300B385F6 /* Default@2x.png in Resources */,
+				51B2C66B16E57B8300B385F6 /* Default-568h@2x.png in Resources */,
+				51B2C66E16E57B8300B385F6 /* MainStoryboard.storyboard in Resources */,
+				51B2C67316E57B8300B385F6 /* first.png in Resources */,
+				51B2C67516E57B8300B385F6 /* first@2x.png in Resources */,
+				51B2C67A16E57B8300B385F6 /* second.png in Resources */,
+				51B2C67C16E57B8300B385F6 /* second@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		51B2C67F16E57B8400B385F6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				51B2C68E16E57B8500B385F6 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		51B2C68016E57B8400B385F6 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		51B2C64D16E57B8300B385F6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				51B2C66116E57B8300B385F6 /* main.m in Sources */,
+				51B2C66516E57B8300B385F6 /* TCAppDelegate.m in Sources */,
+				51B2C67116E57B8300B385F6 /* TCFirstViewController.m in Sources */,
+				51B2C67816E57B8300B385F6 /* TCSecondViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		51B2C67D16E57B8400B385F6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				51B2C69116E57B8500B385F6 /* TraCareTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		51B2C68816E57B8400B385F6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 51B2C65016E57B8300B385F6 /* TraCare */;
+			targetProxy = 51B2C68716E57B8400B385F6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		51B2C65D16E57B8300B385F6 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				51B2C65E16E57B8300B385F6 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		51B2C66C16E57B8300B385F6 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				51B2C66D16E57B8300B385F6 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+		51B2C68C16E57B8500B385F6 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				51B2C68D16E57B8500B385F6 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		51B2C69216E57B8500B385F6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		51B2C69316E57B8500B385F6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		51B2C69516E57B8500B385F6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TraCare/TraCare-Prefix.pch";
+				INFOPLIST_FILE = "TraCare/TraCare-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		51B2C69616E57B8500B385F6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TraCare/TraCare-Prefix.pch";
+				INFOPLIST_FILE = "TraCare/TraCare-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		51B2C69816E57B8500B385F6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TraCare.app/TraCare";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TraCare/TraCare-Prefix.pch";
+				INFOPLIST_FILE = "TraCareTests/TraCareTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		51B2C69916E57B8500B385F6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TraCare.app/TraCare";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TraCare/TraCare-Prefix.pch";
+				INFOPLIST_FILE = "TraCareTests/TraCareTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		51B2C64C16E57B8300B385F6 /* Build configuration list for PBXProject "TraCare" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				51B2C69216E57B8500B385F6 /* Debug */,
+				51B2C69316E57B8500B385F6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		51B2C69416E57B8500B385F6 /* Build configuration list for PBXNativeTarget "TraCare" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				51B2C69516E57B8500B385F6 /* Debug */,
+				51B2C69616E57B8500B385F6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		51B2C69716E57B8500B385F6 /* Build configuration list for PBXNativeTarget "TraCareTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				51B2C69816E57B8500B385F6 /* Debug */,
+				51B2C69916E57B8500B385F6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 51B2C64916E57B8300B385F6 /* Project object */;
+}
