@@ -8,7 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+#import "TCAppDelegate.h"
+
 @interface PreferencesViewController : UITableViewController
+
+// Create the property for the app delegate reference
+@property (strong, nonatomic) TCAppDelegate *appDelegate;
+@property (strong, nonatomic) Preferences *preferences;
+@property (strong, nonatomic) UserDetails *userdetails;
 
 // Create the outlets for the entry tracking preferences
 @property (strong, nonatomic) IBOutlet UISwitch *trackWeight;
@@ -34,6 +41,15 @@
 - (IBAction)changeUserName:(id)sender;
 - (IBAction)changeUserWeight:(id)sender;
 - (IBAction)changeUserHeight:(id)sender;
+
+// Create the actions for tracking details
+- (IBAction)changeTrackWeight:(id)sender;
+- (IBAction)changeTrackSleep:(id)sender;
+- (IBAction)changeTrackBloodPressure:(id)sender;
+- (IBAction)changeTrackEnergyLevel:(id)sender;
+- (IBAction)changeTrackQualityofSleep:(id)sender;
+- (IBAction)changeTrackFitness:(id)sender;
+- (IBAction)changeTrackNutrition:(id)sender;
 
 // Create the action to hide the keyboard when the user swipes down
 - (IBAction)hideKeyboard:(id)sender;

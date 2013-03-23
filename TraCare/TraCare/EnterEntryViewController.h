@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EnterEntryViewController : UIViewController
+@interface EnterEntryViewController : UITableViewController
 
+- (IBAction)ShowCell:(id)sender;
+- (IBAction)HideCell:(id)sender;
+@property (strong, nonatomic) IBOutlet UITableView *Table;
+@property (assign, nonatomic) NSUInteger Group1Show;
 @end

@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		515DA5C716F7F6BE0039C690 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 515DA5C616F7F6BE0039C690 /* MapKit.framework */; };
+		51715B3516FCE16400667936 /* TraCare.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 51715B3316FCE16400667936 /* TraCare.xcdatamodeld */; };
+		51715B3A16FCE2E100667936 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51715B3916FCE2E100667936 /* CoreData.framework */; };
+		51715B4116FCE78000667936 /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51715B4016FCE78000667936 /* TabBarViewController.m */; };
+		51715B4716FD45B700667936 /* Preferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 51715B4616FD45B700667936 /* Preferences.m */; };
+		51715B4A16FD530300667936 /* UserDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 51715B4916FD530300667936 /* UserDetails.m */; };
+		51715B4D16FD56E400667936 /* Gender.m in Sources */ = {isa = PBXBuildFile; fileRef = 51715B4C16FD56E400667936 /* Gender.m */; };
 		51B2C65516E57B8300B385F6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51B2C65416E57B8300B385F6 /* UIKit.framework */; };
 		51B2C65716E57B8300B385F6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51B2C65616E57B8300B385F6 /* Foundation.framework */; };
 		51B2C65916E57B8300B385F6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51B2C65816E57B8300B385F6 /* CoreGraphics.framework */; };
@@ -45,6 +52,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		515DA5C616F7F6BE0039C690 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		51715B3416FCE16400667936 /* TraCare.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TraCare.xcdatamodel; sourceTree = "<group>"; };
+		51715B3916FCE2E100667936 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		51715B3B16FCE2EE00667936 /* TraCare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TraCare.entitlements; sourceTree = "<group>"; };
+		51715B3F16FCE78000667936 /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
+		51715B4016FCE78000667936 /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
+		51715B4516FD45B700667936 /* Preferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Preferences.h; sourceTree = "<group>"; };
+		51715B4616FD45B700667936 /* Preferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Preferences.m; sourceTree = "<group>"; };
+		51715B4816FD530300667936 /* UserDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDetails.h; sourceTree = "<group>"; };
+		51715B4916FD530300667936 /* UserDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDetails.m; sourceTree = "<group>"; };
+		51715B4B16FD56E400667936 /* Gender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gender.h; sourceTree = "<group>"; };
+		51715B4C16FD56E400667936 /* Gender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gender.m; sourceTree = "<group>"; };
 		51B2C65116E57B8300B385F6 /* TraCare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TraCare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51B2C65416E57B8300B385F6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		51B2C65616E57B8300B385F6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -88,6 +107,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51715B3A16FCE2E100667936 /* CoreData.framework in Frameworks */,
+				515DA5C716F7F6BE0039C690 /* MapKit.framework in Frameworks */,
 				51B2C65516E57B8300B385F6 /* UIKit.framework in Frameworks */,
 				51B2C65716E57B8300B385F6 /* Foundation.framework in Frameworks */,
 				51B2C65916E57B8300B385F6 /* CoreGraphics.framework in Frameworks */,
@@ -110,6 +131,9 @@
 		51B2C64816E57B8300B385F6 = {
 			isa = PBXGroup;
 			children = (
+				51715B3916FCE2E100667936 /* CoreData.framework */,
+				51715B3316FCE16400667936 /* TraCare.xcdatamodeld */,
+				515DA5C616F7F6BE0039C690 /* MapKit.framework */,
 				51B2C65A16E57B8300B385F6 /* TraCare */,
 				51B2C68916E57B8400B385F6 /* TraCareTests */,
 				51B2C65316E57B8300B385F6 /* Frameworks */,
@@ -140,6 +164,7 @@
 		51B2C65A16E57B8300B385F6 /* TraCare */ = {
 			isa = PBXGroup;
 			children = (
+				51715B3B16FCE2EE00667936 /* TraCare.entitlements */,
 				51B2C69E16E57C6700B385F6 /* Controllers */,
 				51B2C69D16E57C5D00B385F6 /* Views */,
 				51B2C69C16E57C5700B385F6 /* Models */,
@@ -203,6 +228,12 @@
 		51B2C69C16E57C5700B385F6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				51715B4816FD530300667936 /* UserDetails.h */,
+				51715B4916FD530300667936 /* UserDetails.m */,
+				51715B4516FD45B700667936 /* Preferences.h */,
+				51715B4616FD45B700667936 /* Preferences.m */,
+				51715B4B16FD56E400667936 /* Gender.h */,
+				51715B4C16FD56E400667936 /* Gender.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -225,6 +256,8 @@
 				51B2C6A616E58E2800B385F6 /* SummaryViewController.m */,
 				51B2C6B716E5B99C00B385F6 /* GenderViewController.h */,
 				51B2C6B816E5B99C00B385F6 /* GenderViewController.m */,
+				51715B3F16FCE78000667936 /* TabBarViewController.h */,
+				51715B4016FCE78000667936 /* TabBarViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -352,6 +385,11 @@
 				51B2C6A416E58E0D00B385F6 /* EnterEntryViewController.m in Sources */,
 				51B2C6A716E58E2800B385F6 /* SummaryViewController.m in Sources */,
 				51B2C6B916E5B99C00B385F6 /* GenderViewController.m in Sources */,
+				51715B3516FCE16400667936 /* TraCare.xcdatamodeld in Sources */,
+				51715B4116FCE78000667936 /* TabBarViewController.m in Sources */,
+				51715B4716FD45B700667936 /* Preferences.m in Sources */,
+				51715B4A16FD530300667936 /* UserDetails.m in Sources */,
+				51715B4D16FD56E400667936 /* Gender.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,9 +498,11 @@
 		51B2C69516E57B8500B385F6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = TraCare/TraCare.entitlements;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TraCare/TraCare-Prefix.pch";
 				INFOPLIST_FILE = "TraCare/TraCare-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -471,9 +511,11 @@
 		51B2C69616E57B8500B385F6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = TraCare/TraCare.entitlements;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TraCare/TraCare-Prefix.pch";
 				INFOPLIST_FILE = "TraCare/TraCare-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -532,6 +574,7 @@
 				51B2C69616E57B8500B385F6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		51B2C69716E57B8500B385F6 /* Build configuration list for PBXNativeTarget "TraCareTests" */ = {
 			isa = XCConfigurationList;
@@ -540,8 +583,23 @@
 				51B2C69916E57B8500B385F6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		51715B3316FCE16400667936 /* TraCare.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				51715B3416FCE16400667936 /* TraCare.xcdatamodel */,
+			);
+			currentVersion = 51715B3416FCE16400667936 /* TraCare.xcdatamodel */;
+			name = TraCare.xcdatamodeld;
+			path = TraCare/TraCare.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 51B2C64916E57B8300B385F6 /* Project object */;
 }
