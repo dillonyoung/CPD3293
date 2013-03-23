@@ -317,8 +317,7 @@
                                             <constraint firstItem="rbs-zG-MBF" firstAttribute="top" secondItem="U6i-Yt-jZP" secondAttribute="top" constant="11" id="jPd-eh-YFk"/>
                                         </constraints>
                                         <connections>
-                                            <segue destination="Vqn-TC-17A" kind="push" trigger="accessoryAction" id="yy4-2F-MVx"/>
-                                            <segue destination="Vqn-TC-17A" kind="push" id="dS2-Al-ip0"/>
+                                            <segue destination="Vqn-TC-17A" kind="push" identifier="Gender Select View" trigger="accessoryAction" id="dLp-4t-Jhm"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="DVa-MO-3wn">
@@ -408,7 +407,7 @@
                             <outletCollection property="gestureRecognizers" destination="DaR-7z-31L" appends="YES" id="zWa-ue-8ek"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Preferences" id="fkQ-9j-bi5"/>
+                    <tabBarItem key="tabBarItem" title="Preferences" image="Tools.png" id="fkQ-9j-bi5"/>
                     <navigationItem key="navigationItem" title="Preferences" id="sbc-LM-gA7"/>
                     <connections>
                         <outlet property="trackBloodPressure" destination="1IN-aP-OM4" id="69t-gP-C97"/>
@@ -432,7 +431,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="187" y="1262"/>
+            <point key="canvasLocation" x="-7" y="1404"/>
         </scene>
         <!--Gender View Controller - Gender-->
         <scene sceneID="uum-iY-hUD">
@@ -445,11 +444,11 @@
                         <sections>
                             <tableViewSection headerTitle="Gender" id="v02-Pr-eqo">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="z2Z-71-26t">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="GenderCell" id="z2Z-71-26t">
                                         <rect key="frame" x="0.0" y="46" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="1" width="280" height="43"/>
+                                            <rect key="frame" x="10" y="1" width="300" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Male" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j2y-Y9-4qH">
@@ -465,7 +464,7 @@
                                             <constraint firstItem="j2y-Y9-4qH" firstAttribute="centerY" secondItem="z2Z-71-26t" secondAttribute="centerY" type="default" id="n8f-qa-PzN"/>
                                         </constraints>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="2AL-jM-7SL">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="GenderCell" id="2AL-jM-7SL">
                                         <rect key="frame" x="0.0" y="91" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -496,7 +495,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dLT-xd-OBc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="683" y="1265"/>
+            <point key="canvasLocation" x="660" y="1151"/>
         </scene>
         <!--Table View Controller - Root View Controller-->
         <scene sceneID="c54-FJ-f2j">
@@ -785,6 +784,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Tools.png" width="30" height="30"/>
         <image name="second" width="16" height="16"/>
     </resources>
     <classes>
@@ -834,7 +834,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="yy4-2F-MVx"/>
-    </inferredMetricsTieBreakers>
 </document>

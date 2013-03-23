@@ -30,7 +30,6 @@
 @property (strong, nonatomic) IBOutlet UISlider *trackFrequency;
 
 // Create the outlets for the user details
-
 @property (strong, nonatomic) IBOutlet UITextField *userName;
 @property (strong, nonatomic) IBOutlet UILabel *userGender;
 @property (strong, nonatomic) IBOutlet UITextField *userWeight;
@@ -39,6 +38,7 @@
 
 // Create the actions for the user details
 - (IBAction)changeUserName:(id)sender;
+
 - (IBAction)changeUserWeight:(id)sender;
 - (IBAction)changeUserHeight:(id)sender;
 

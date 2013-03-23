@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GenderViewController : UITableViewController
+#import "TCAppDelegate.h"
+
+@interface GenderViewController : UITableViewController <UITableViewDataSource>
+
+// Create the property for the app delegate references
+@property (strong, nonatomic) UserDetails *userdetails;
 
 @end

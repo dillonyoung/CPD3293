@@ -8,6 +8,10 @@
 
 #import "PreferencesViewController.h"
 
+#import "GenderViewController.h"
+
+static NSString* const GenderViewSegueIdentifier = @"Gender Select View";
+
 @interface PreferencesViewController ()
 
 @end
@@ -50,7 +54,16 @@
 
 - (IBAction)changeUserName:(id)sender {
     [self.userName resignFirstResponder];
-    self.userdetails.name = self.userName.text;
+    
+    // Check to see if the username entered is blank
+    if ([self.userName.text isEqual: @""]) {
+        self.userName.text = self.userdetails.name;
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Blank Name" message:@"You must enter a name" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+    } else {
+        self.userdetails.name = self.userName.text;
+    }
 }
 
 - (IBAction)changeUserWeight:(id)sender {
@@ -109,5 +122,23 @@
     
     // Update the user details
     self.userName.text = self.userdetails.name;
+    
+    // Update the user's weight
+    if (self.userdetails.gender == 1) {
+        self.userGender.text = @"Male";
+    } else {
+        self.userGender.text = @"Female";
+    }
+}
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:GenderViewSegueIdentifier]) {
+        NSIndexPath* path = [self.tableView indexPathForSelectedRow];
+        GenderViewController* controller = segue.destinationViewController;
+        NSLog(@"Gender: %hd", self.userdetails.gender);
+        //controller.selectedGender = self.userdetails.gender;
+        controller.userdetails = self.userdetails;
+    }
 }
 @end
