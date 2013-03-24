@@ -32,9 +32,11 @@
 // Create the outlets for the user details
 @property (strong, nonatomic) IBOutlet UITextField *userName;
 @property (strong, nonatomic) IBOutlet UILabel *userGender;
-@property (strong, nonatomic) IBOutlet UITextField *userWeight;
-@property (strong, nonatomic) IBOutlet UITextField *userHeight;
+@property (strong, nonatomic) IBOutlet UILabel *userWeight;
+@property (strong, nonatomic) IBOutlet UILabel *userHeight;
 
+// Create the outlets for the default units
+@property (strong, nonatomic) IBOutlet UILabel *defaultUnits;
 
 // Create the actions for the user details
 - (IBAction)changeUserName:(id)sender;

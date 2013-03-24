@@ -193,6 +193,7 @@
         pref.qualityofsleep = YES;
         pref.nutrition = YES;
         pref.sleep = YES;
+        pref.defaultunits = 2;
 
         NSError *error;
     
@@ -253,8 +254,8 @@
         // Update the values of the user details entity to the default values
         userdetails.name = @"User";
         userdetails.gender = 1;
-        userdetails.weight = 0.0;
-        userdetails.height = 0.0;
+        userdetails.weight = 50000.0;
+        userdetails.height = 5.0;
         
         NSError *error;
         

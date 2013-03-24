@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		514D9B2C16FE2C10006BFD60 /* Tools.png in Resources */ = {isa = PBXBuildFile; fileRef = 514D9B2B16FE2C10006BFD60 /* Tools.png */; };
+		514D9B3216FE6C58006BFD60 /* WeightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 514D9B3116FE6C58006BFD60 /* WeightViewController.m */; };
 		515DA5C716F7F6BE0039C690 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 515DA5C616F7F6BE0039C690 /* MapKit.framework */; };
 		51715B3516FCE16400667936 /* TraCare.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 51715B3316FCE16400667936 /* TraCare.xcdatamodeld */; };
 		51715B3A16FCE2E100667936 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51715B3916FCE2E100667936 /* CoreData.framework */; };
 		51715B4116FCE78000667936 /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51715B4016FCE78000667936 /* TabBarViewController.m */; };
-		51715B4716FD45B700667936 /* Preferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 51715B4616FD45B700667936 /* Preferences.m */; };
 		51715B4A16FD530300667936 /* UserDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 51715B4916FD530300667936 /* UserDetails.m */; };
 		51715B4D16FD56E400667936 /* Gender.m in Sources */ = {isa = PBXBuildFile; fileRef = 51715B4C16FD56E400667936 /* Gender.m */; };
 		51B2C65516E57B8300B385F6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51B2C65416E57B8300B385F6 /* UIKit.framework */; };
@@ -40,6 +40,8 @@
 		51B2C6A416E58E0D00B385F6 /* EnterEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B2C6A316E58E0D00B385F6 /* EnterEntryViewController.m */; };
 		51B2C6A716E58E2800B385F6 /* SummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B2C6A616E58E2800B385F6 /* SummaryViewController.m */; };
 		51B2C6B916E5B99C00B385F6 /* GenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B2C6B816E5B99C00B385F6 /* GenderViewController.m */; };
+		51B51F6016FE8F6E008EE4A5 /* DefaultUnitsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B51F5F16FE8F6E008EE4A5 /* DefaultUnitsViewController.m */; };
+		51B51F6616FE9164008EE4A5 /* Preferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B51F6516FE9164008EE4A5 /* Preferences.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,14 +56,14 @@
 
 /* Begin PBXFileReference section */
 		514D9B2B16FE2C10006BFD60 /* Tools.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tools.png; sourceTree = "<group>"; };
+		514D9B3016FE6C58006BFD60 /* WeightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeightViewController.h; sourceTree = "<group>"; };
+		514D9B3116FE6C58006BFD60 /* WeightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeightViewController.m; sourceTree = "<group>"; };
 		515DA5C616F7F6BE0039C690 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		51715B3416FCE16400667936 /* TraCare.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TraCare.xcdatamodel; sourceTree = "<group>"; };
 		51715B3916FCE2E100667936 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		51715B3B16FCE2EE00667936 /* TraCare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TraCare.entitlements; sourceTree = "<group>"; };
 		51715B3F16FCE78000667936 /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
 		51715B4016FCE78000667936 /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
-		51715B4516FD45B700667936 /* Preferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Preferences.h; sourceTree = "<group>"; };
-		51715B4616FD45B700667936 /* Preferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Preferences.m; sourceTree = "<group>"; };
 		51715B4816FD530300667936 /* UserDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDetails.h; sourceTree = "<group>"; };
 		51715B4916FD530300667936 /* UserDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDetails.m; sourceTree = "<group>"; };
 		51715B4B16FD56E400667936 /* Gender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gender.h; sourceTree = "<group>"; };
@@ -102,6 +104,10 @@
 		51B2C6A616E58E2800B385F6 /* SummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SummaryViewController.m; sourceTree = "<group>"; };
 		51B2C6B716E5B99C00B385F6 /* GenderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenderViewController.h; sourceTree = "<group>"; };
 		51B2C6B816E5B99C00B385F6 /* GenderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenderViewController.m; sourceTree = "<group>"; };
+		51B51F5E16FE8F6E008EE4A5 /* DefaultUnitsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultUnitsViewController.h; sourceTree = "<group>"; };
+		51B51F5F16FE8F6E008EE4A5 /* DefaultUnitsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultUnitsViewController.m; sourceTree = "<group>"; };
+		51B51F6416FE9164008EE4A5 /* Preferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Preferences.h; sourceTree = "<group>"; };
+		51B51F6516FE9164008EE4A5 /* Preferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Preferences.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,10 +237,10 @@
 		51B2C69C16E57C5700B385F6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				51B51F6416FE9164008EE4A5 /* Preferences.h */,
+				51B51F6516FE9164008EE4A5 /* Preferences.m */,
 				51715B4816FD530300667936 /* UserDetails.h */,
 				51715B4916FD530300667936 /* UserDetails.m */,
-				51715B4516FD45B700667936 /* Preferences.h */,
-				51715B4616FD45B700667936 /* Preferences.m */,
 				51715B4B16FD56E400667936 /* Gender.h */,
 				51715B4C16FD56E400667936 /* Gender.m */,
 			);
@@ -261,6 +267,10 @@
 				51B2C6B816E5B99C00B385F6 /* GenderViewController.m */,
 				51715B3F16FCE78000667936 /* TabBarViewController.h */,
 				51715B4016FCE78000667936 /* TabBarViewController.m */,
+				514D9B3016FE6C58006BFD60 /* WeightViewController.h */,
+				514D9B3116FE6C58006BFD60 /* WeightViewController.m */,
+				51B51F5E16FE8F6E008EE4A5 /* DefaultUnitsViewController.h */,
+				51B51F5F16FE8F6E008EE4A5 /* DefaultUnitsViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -391,9 +401,11 @@
 				51B2C6B916E5B99C00B385F6 /* GenderViewController.m in Sources */,
 				51715B3516FCE16400667936 /* TraCare.xcdatamodeld in Sources */,
 				51715B4116FCE78000667936 /* TabBarViewController.m in Sources */,
-				51715B4716FD45B700667936 /* Preferences.m in Sources */,
 				51715B4A16FD530300667936 /* UserDetails.m in Sources */,
 				51715B4D16FD56E400667936 /* Gender.m in Sources */,
+				514D9B3216FE6C58006BFD60 /* WeightViewController.m in Sources */,
+				51B51F6016FE8F6E008EE4A5 /* DefaultUnitsViewController.m in Sources */,
+				51B51F6616FE9164008EE4A5 /* Preferences.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

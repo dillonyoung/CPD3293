@@ -9,8 +9,12 @@
 #import "PreferencesViewController.h"
 
 #import "GenderViewController.h"
+#import "WeightViewController.h"
+#import "DefaultUnitsViewController.h"
 
 static NSString* const GenderViewSegueIdentifier = @"Gender Select View";
+static NSString* const WeightViewSegueIdentifier = @"Weight Select View";
+static NSString* const DefaultUnitsViewSegueIdentifier = @"Default Units Select View";
 
 @interface PreferencesViewController ()
 
@@ -120,25 +124,57 @@ static NSString* const GenderViewSegueIdentifier = @"Gender Select View";
     self.trackFitness.on = self.preferences.fitness;
     self.trackNutrition.on = self.preferences.nutrition;
     
+    // Update the default units
+    if (self.preferences.defaultunits == 1) {
+        self.defaultUnits.text = @"Imperial";
+    } else {
+        self.defaultUnits.text = @"Metric";
+    }
+    
     // Update the user details
     self.userName.text = self.userdetails.name;
     
-    // Update the user's weight
+    // Update the user's gender
     if (self.userdetails.gender == 1) {
         self.userGender.text = @"Male";
     } else {
         self.userGender.text = @"Female";
     }
+
+    // Update the user's weight
+    if (self.preferences.defaultunits == 1) {
+        float ouncehold = self.userdetails.weight * 0.035274;
+        int pounds = (int)(ouncehold / 16.0);
+        int ounces = (int)(ouncehold - (pounds * 16));
+        NSString *value = [NSString stringWithFormat:@"%d", pounds];
+        value = [value stringByAppendingString:@" lbs "];
+        value = [value stringByAppendingString:[NSString stringWithFormat:@"%d", ounces]];
+        value = [value stringByAppendingString:@" oz"];
+        self.userWeight.text = value;
+    } else {
+        int kilograms = (int)(self.userdetails.weight / 1000);
+        int grams = (int)(self.userdetails.weight - (kilograms * 1000));
+        NSString *value = [NSString stringWithFormat:@"%d", kilograms];
+        value = [value stringByAppendingString:@" kg "];
+        value = [value stringByAppendingString:[NSString stringWithFormat:@"%d", grams]];
+        value = [value stringByAppendingString:@" g"];
+        self.userWeight.text = value;
+    }
+
 }
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:GenderViewSegueIdentifier]) {
-        NSIndexPath* path = [self.tableView indexPathForSelectedRow];
         GenderViewController* controller = segue.destinationViewController;
-        NSLog(@"Gender: %hd", self.userdetails.gender);
-        //controller.selectedGender = self.userdetails.gender;
         controller.userdetails = self.userdetails;
+    } else if ([segue.identifier isEqual:WeightViewSegueIdentifier]) {
+        WeightViewController* controller = segue.destinationViewController;
+        controller.preferences = self.preferences;
+        controller.userdetails = self.userdetails;
+    } else if ([segue.identifier isEqual:DefaultUnitsViewSegueIdentifier]) {
+        DefaultUnitsViewController* controller = segue.destinationViewController;
+        controller.preferences = self.preferences;
     }
 }
 @end
