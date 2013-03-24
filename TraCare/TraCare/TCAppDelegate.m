@@ -255,7 +255,7 @@
         userdetails.name = @"User";
         userdetails.gender = 1;
         userdetails.weight = 50000.0;
-        userdetails.height = 5.0;
+        userdetails.height = 153;
         
         NSError *error;
         

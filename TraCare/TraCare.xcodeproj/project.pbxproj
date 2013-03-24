@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5112303D16FF8E4100905F61 /* HeightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5112303C16FF8E4100905F61 /* HeightViewController.m */; };
 		514D9B2C16FE2C10006BFD60 /* Tools.png in Resources */ = {isa = PBXBuildFile; fileRef = 514D9B2B16FE2C10006BFD60 /* Tools.png */; };
 		514D9B3216FE6C58006BFD60 /* WeightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 514D9B3116FE6C58006BFD60 /* WeightViewController.m */; };
 		515DA5C716F7F6BE0039C690 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 515DA5C616F7F6BE0039C690 /* MapKit.framework */; };
@@ -55,6 +56,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5112303B16FF8E4100905F61 /* HeightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeightViewController.h; sourceTree = "<group>"; };
+		5112303C16FF8E4100905F61 /* HeightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeightViewController.m; sourceTree = "<group>"; };
 		514D9B2B16FE2C10006BFD60 /* Tools.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tools.png; sourceTree = "<group>"; };
 		514D9B3016FE6C58006BFD60 /* WeightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeightViewController.h; sourceTree = "<group>"; };
 		514D9B3116FE6C58006BFD60 /* WeightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeightViewController.m; sourceTree = "<group>"; };
@@ -271,6 +274,8 @@
 				514D9B3116FE6C58006BFD60 /* WeightViewController.m */,
 				51B51F5E16FE8F6E008EE4A5 /* DefaultUnitsViewController.h */,
 				51B51F5F16FE8F6E008EE4A5 /* DefaultUnitsViewController.m */,
+				5112303B16FF8E4100905F61 /* HeightViewController.h */,
+				5112303C16FF8E4100905F61 /* HeightViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -406,6 +411,7 @@
 				514D9B3216FE6C58006BFD60 /* WeightViewController.m in Sources */,
 				51B51F6016FE8F6E008EE4A5 /* DefaultUnitsViewController.m in Sources */,
 				51B51F6616FE9164008EE4A5 /* Preferences.m in Sources */,
+				5112303D16FF8E4100905F61 /* HeightViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

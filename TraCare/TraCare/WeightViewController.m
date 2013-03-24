@@ -69,7 +69,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     
-    // Check to see which default units mode is selected
+    // Check to see which default units mode is selected and update the display
     if (self.preferences.defaultunits == 1) {
         float ouncehold = self.userdetails.weight * 0.035274;
         int pounds = (int)(ouncehold / 16.0);
@@ -93,6 +93,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 #pragma mark PickerView DataSource
 

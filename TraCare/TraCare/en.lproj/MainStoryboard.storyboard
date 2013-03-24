@@ -388,6 +388,9 @@
                                             <constraint firstItem="Mxx-44-Tur" firstAttribute="leading" secondItem="82g-Lr-QTJ" secondAttribute="leading" constant="30" id="jB9-c8-eN5"/>
                                             <constraint firstItem="Mxx-44-Tur" firstAttribute="top" secondItem="82g-Lr-QTJ" secondAttribute="top" constant="11" id="n3O-wi-OIj"/>
                                         </constraints>
+                                        <connections>
+                                            <segue destination="O1h-u4-rnQ" kind="push" identifier="Height Select View" trigger="accessoryAction" id="svr-UD-FC6"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -592,7 +595,41 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f8H-kb-5Br" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="470" y="1962"/>
+            <point key="canvasLocation" x="498" y="2204"/>
+        </scene>
+        <!--Height View Controller - Height-->
+        <scene sceneID="MsQ-em-Bfg">
+            <objects>
+                <viewController id="O1h-u4-rnQ" customClass="HeightViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HMv-0E-YGs">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Xj-sd-Rro">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="216" id="pKL-C7-EjB"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="O1h-u4-rnQ" id="rmf-aB-e0Q"/>
+                                    <outlet property="delegate" destination="O1h-u4-rnQ" id="grs-WZ-JjU"/>
+                                </connections>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="9Xj-sd-Rro" firstAttribute="top" secondItem="HMv-0E-YGs" secondAttribute="top" type="default" id="6Ct-U3-dqf"/>
+                            <constraint firstItem="9Xj-sd-Rro" firstAttribute="trailing" secondItem="HMv-0E-YGs" secondAttribute="trailing" type="default" id="9vi-X4-eFc"/>
+                            <constraint firstItem="9Xj-sd-Rro" firstAttribute="leading" secondItem="HMv-0E-YGs" secondAttribute="leading" type="default" id="Crj-bL-LYg"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Height" id="giI-Iq-9xA"/>
+                    <connections>
+                        <outlet property="picker" destination="9Xj-sd-Rro" id="dc1-XI-yaQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="By5-ir-Kvl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1093" y="2346"/>
         </scene>
         <!--Weight View Controller - Weight-->
         <scene sceneID="LzN-bt-9m4">

@@ -11,10 +11,12 @@
 #import "GenderViewController.h"
 #import "WeightViewController.h"
 #import "DefaultUnitsViewController.h"
+#import "HeightViewController.h"
 
 static NSString* const GenderViewSegueIdentifier = @"Gender Select View";
 static NSString* const WeightViewSegueIdentifier = @"Weight Select View";
 static NSString* const DefaultUnitsViewSegueIdentifier = @"Default Units Select View";
+static NSString* const HeightViewSegueIdentifier = @"Height Select View";
 
 @interface PreferencesViewController ()
 
@@ -160,6 +162,26 @@ static NSString* const DefaultUnitsViewSegueIdentifier = @"Default Units Select 
         value = [value stringByAppendingString:@" g"];
         self.userWeight.text = value;
     }
+    
+    // Update the user's height
+    if (self.preferences.defaultunits == 1) {
+        float inchhold = self.userdetails.height * 0.39370;
+        int feet = (int)(inchhold / 12.0);
+        int inches = (int)(inchhold - (feet * 12));
+        NSString *value = [NSString stringWithFormat:@"%d", feet];
+        value = [value stringByAppendingString:@" ft "];
+        value = [value stringByAppendingString:[NSString stringWithFormat:@"%d", inches]];
+        value = [value stringByAppendingString:@" in"];
+        self.userHeight.text = value;
+    } else {
+        int meters = (int)(self.userdetails.height / 100);
+        int centimeters = (int)(self.userdetails.height - (meters * 100));
+        NSString *value = [NSString stringWithFormat:@"%d", meters];
+        value = [value stringByAppendingString:@" m "];
+        value = [value stringByAppendingString:[NSString stringWithFormat:@"%d", centimeters]];
+        value = [value stringByAppendingString:@" cm"];
+        self.userHeight.text = value;
+    }
 
 }
 
@@ -175,6 +197,10 @@ static NSString* const DefaultUnitsViewSegueIdentifier = @"Default Units Select 
     } else if ([segue.identifier isEqual:DefaultUnitsViewSegueIdentifier]) {
         DefaultUnitsViewController* controller = segue.destinationViewController;
         controller.preferences = self.preferences;
+    } else if ([segue.identifier isEqual:HeightViewSegueIdentifier]) {
+        HeightViewController* controller = segue.destinationViewController;
+        controller.preferences = self.preferences;
+        controller.userdetails = self.userdetails;
     }
 }
 @end
