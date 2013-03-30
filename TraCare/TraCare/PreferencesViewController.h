@@ -25,6 +25,8 @@
 @property (strong, nonatomic) IBOutlet UISwitch *trackQualityofSleep;
 @property (strong, nonatomic) IBOutlet UISwitch *trackFitness;
 @property (strong, nonatomic) IBOutlet UISwitch *trackNutrition;
+@property (strong, nonatomic) IBOutlet UISwitch *trackSymptom;
+@property (strong, nonatomic) IBOutlet UISwitch *trackLocation;
 
 // Create the outlets for the track frequency
 @property (strong, nonatomic) IBOutlet UISlider *trackFrequency;
@@ -52,6 +54,8 @@
 - (IBAction)changeTrackQualityofSleep:(id)sender;
 - (IBAction)changeTrackFitness:(id)sender;
 - (IBAction)changeTrackNutrition:(id)sender;
+- (IBAction)changeTrackSymptom:(id)sender;
+- (IBAction)changeTrackLocation:(id)sender;
 
 // Create the action to hide the keyboard when the user swipes down
 - (IBAction)hideKeyboard:(id)sender;

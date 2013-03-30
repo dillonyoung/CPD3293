@@ -17,12 +17,11 @@
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
 @synthesize preferences = _preferences;
-
 @synthesize userdetails = _userdetails;
+@synthesize symptomtypes = _symptomtypes;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
     
     // Create the preferences entity if needed
     [self createPreferences];
@@ -30,11 +29,17 @@
     // Create the user details entity if needed
     [self createUserDetails];
     
+    // Create the symptom types entity if needed
+    [self createSymptomTypes];
+    
     // Load the preferences entity data
     [self loadPreferences];
     
     // Load the user details entity data
     [self loadUserDetails];
+    
+    // Load the symptom types entity data
+    [self loadSymptomTypes];
     
     // Return YES
     return YES;
@@ -193,6 +198,8 @@
         pref.qualityofsleep = YES;
         pref.nutrition = YES;
         pref.sleep = YES;
+        pref.symptom = YES;
+        pref.location = YES;
         pref.defaultunits = 2;
 
         NSError *error;
@@ -285,6 +292,80 @@
     // Loop through the entries and store them in the preferences class
     for (UserDetails *info in fetchedObjects) {
         self.userdetails = info;
+    }
+}
+
+
+#pragma mark - Symptom Type Support
+
+/**
+ * Creates the symptom type entry in the data file if needed
+ */
+- (void)createSymptomTypes {
+    
+    // Prepare a fetch request for the symptom types entity
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity: [NSEntityDescription entityForName: @"SymptomTypes" inManagedObjectContext: [self managedObjectContext]]];
+    
+    // Get the count of entries in the symptom types entity
+    NSError *errorCount = nil;
+    
+    // Initialize the symptom types array
+    NSArray *stypes = [[NSArray alloc] initWithObjects:@"Not Specified", @"Other", @"Abdominal Pain", @"Chest Pain", @"Constipation", @"Cought", @"Diarrea", @"Dizziness", @"Eye Discomfort", @"Foot Pain", @"Headaches", @"Hip Pain", @"Knee Pain", @"Low Back Pain", @"Nasal Congestion", @"Nausea", @"Neck Pain", @"Numbness", @"Shortness of Breath", @"Shoulder Pain", @"Sore Throat", @"Vision Problems", @"Wheezing", nil];
+    
+    // Check to see if the number of entities is not equal to the number of symptoms
+    //if (count != [stypes count]) {
+        
+        // Remove all entries from symptom types entity
+        //[self deleteAllObjectsWithEntityName:@"SymptomTypes" inContext:[self managedObjectContext]];
+        
+        for (int count = 0; count < [stypes count]; count++) {
+
+            [request setPredicate:[NSPredicate predicateWithFormat:@"symptomdesc == %@", stypes[count]]];
+            
+            NSError *error;
+            
+            if ([[self managedObjectContext] countForFetchRequest:request error:&error]) {
+                
+            } else {
+             
+                // Create a new symptom types entity
+                SymptomTypes *newsymptom = [NSEntityDescription insertNewObjectForEntityForName:@"SymptomTypes" inManagedObjectContext:[self managedObjectContext]];
+                
+                // Update the values of the symptom types entity to the default values
+                newsymptom.id = 1;
+                newsymptom.symptomdesc = stypes[count];
+                
+                // Attempt to save the preferences
+                if( ! [[self managedObjectContext] save:&error] ){
+                    NSLog(@"Cannot save data: %@", [error localizedDescription]);
+                }
+            }
+        }
+    //}
+}
+
+/**
+ * Loads the symptom types from the data file
+ */
+- (void)loadSymptomTypes {
+    NSError *error;
+    
+    // Prepare a fetch request for the symptom types entity
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"SymptomTypes" inManagedObjectContext:[self managedObjectContext]];
+    
+    // Set the entity to the symptom types entity
+    [fetchRequest setEntity:entity];
+    
+    // Fetch the entries into an array
+    NSArray *fetchedObjects = [[self managedObjectContext] executeFetchRequest:fetchRequest error:&error];
+    
+    // Loop through the entries and store them in the symptom types class
+    self.symptomtypes = [[NSMutableArray alloc] init];
+    for (SymptomTypes *info in fetchedObjects) {
+        [self.symptomtypes addObject:info];
+        NSLog(@"Entity: %@", info.symptomdesc);
     }
 }
 

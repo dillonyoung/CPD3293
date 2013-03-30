@@ -11,11 +11,14 @@
 		514D9B2C16FE2C10006BFD60 /* Tools.png in Resources */ = {isa = PBXBuildFile; fileRef = 514D9B2B16FE2C10006BFD60 /* Tools.png */; };
 		514D9B3216FE6C58006BFD60 /* WeightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 514D9B3116FE6C58006BFD60 /* WeightViewController.m */; };
 		515DA5C716F7F6BE0039C690 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 515DA5C616F7F6BE0039C690 /* MapKit.framework */; };
+		516A66FA1705E38A00E309BC /* TextEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 516A66F91705E38A00E309BC /* TextEntryViewController.m */; };
+		516A670017060CC300E309BC /* SymptomTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 516A66FF17060CC300E309BC /* SymptomTypeViewController.m */; };
 		51715B3516FCE16400667936 /* TraCare.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 51715B3316FCE16400667936 /* TraCare.xcdatamodeld */; };
 		51715B3A16FCE2E100667936 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51715B3916FCE2E100667936 /* CoreData.framework */; };
 		51715B4116FCE78000667936 /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51715B4016FCE78000667936 /* TabBarViewController.m */; };
 		51715B4A16FD530300667936 /* UserDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 51715B4916FD530300667936 /* UserDetails.m */; };
 		51715B4D16FD56E400667936 /* Gender.m in Sources */ = {isa = PBXBuildFile; fileRef = 51715B4C16FD56E400667936 /* Gender.m */; };
+		51895C5A16FFDD7C00EFC453 /* Preferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 51895C5916FFDD7C00EFC453 /* Preferences.m */; };
 		51B2C65516E57B8300B385F6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51B2C65416E57B8300B385F6 /* UIKit.framework */; };
 		51B2C65716E57B8300B385F6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51B2C65616E57B8300B385F6 /* Foundation.framework */; };
 		51B2C65916E57B8300B385F6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51B2C65816E57B8300B385F6 /* CoreGraphics.framework */; };
@@ -26,10 +29,8 @@
 		51B2C66916E57B8300B385F6 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51B2C66816E57B8300B385F6 /* Default@2x.png */; };
 		51B2C66B16E57B8300B385F6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51B2C66A16E57B8300B385F6 /* Default-568h@2x.png */; };
 		51B2C66E16E57B8300B385F6 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51B2C66C16E57B8300B385F6 /* MainStoryboard.storyboard */; };
-		51B2C67116E57B8300B385F6 /* TCFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B2C67016E57B8300B385F6 /* TCFirstViewController.m */; };
 		51B2C67316E57B8300B385F6 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 51B2C67216E57B8300B385F6 /* first.png */; };
 		51B2C67516E57B8300B385F6 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51B2C67416E57B8300B385F6 /* first@2x.png */; };
-		51B2C67816E57B8300B385F6 /* TCSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B2C67716E57B8300B385F6 /* TCSecondViewController.m */; };
 		51B2C67A16E57B8300B385F6 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 51B2C67916E57B8300B385F6 /* second.png */; };
 		51B2C67C16E57B8300B385F6 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51B2C67B16E57B8300B385F6 /* second@2x.png */; };
 		51B2C68416E57B8400B385F6 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51B2C68316E57B8400B385F6 /* SenTestingKit.framework */; };
@@ -42,7 +43,8 @@
 		51B2C6A716E58E2800B385F6 /* SummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B2C6A616E58E2800B385F6 /* SummaryViewController.m */; };
 		51B2C6B916E5B99C00B385F6 /* GenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B2C6B816E5B99C00B385F6 /* GenderViewController.m */; };
 		51B51F6016FE8F6E008EE4A5 /* DefaultUnitsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B51F5F16FE8F6E008EE4A5 /* DefaultUnitsViewController.m */; };
-		51B51F6616FE9164008EE4A5 /* Preferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B51F6516FE9164008EE4A5 /* Preferences.m */; };
+		51E384D61706687C00C64BF8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51E384D51706687C00C64BF8 /* CoreLocation.framework */; };
+		51E384DC17067B4F00C64BF8 /* SymptomTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 51E384DB17067B4F00C64BF8 /* SymptomTypes.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,10 @@
 		514D9B3016FE6C58006BFD60 /* WeightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeightViewController.h; sourceTree = "<group>"; };
 		514D9B3116FE6C58006BFD60 /* WeightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeightViewController.m; sourceTree = "<group>"; };
 		515DA5C616F7F6BE0039C690 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		516A66F81705E38A00E309BC /* TextEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextEntryViewController.h; sourceTree = "<group>"; };
+		516A66F91705E38A00E309BC /* TextEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextEntryViewController.m; sourceTree = "<group>"; };
+		516A66FE17060CC300E309BC /* SymptomTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SymptomTypeViewController.h; sourceTree = "<group>"; };
+		516A66FF17060CC300E309BC /* SymptomTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SymptomTypeViewController.m; sourceTree = "<group>"; };
 		51715B3416FCE16400667936 /* TraCare.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TraCare.xcdatamodel; sourceTree = "<group>"; };
 		51715B3916FCE2E100667936 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		51715B3B16FCE2EE00667936 /* TraCare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TraCare.entitlements; sourceTree = "<group>"; };
@@ -71,6 +77,8 @@
 		51715B4916FD530300667936 /* UserDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDetails.m; sourceTree = "<group>"; };
 		51715B4B16FD56E400667936 /* Gender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gender.h; sourceTree = "<group>"; };
 		51715B4C16FD56E400667936 /* Gender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gender.m; sourceTree = "<group>"; };
+		51895C5816FFDD7C00EFC453 /* Preferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Preferences.h; sourceTree = "<group>"; };
+		51895C5916FFDD7C00EFC453 /* Preferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Preferences.m; sourceTree = "<group>"; };
 		51B2C65116E57B8300B385F6 /* TraCare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TraCare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51B2C65416E57B8300B385F6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		51B2C65616E57B8300B385F6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -85,12 +93,8 @@
 		51B2C66816E57B8300B385F6 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		51B2C66A16E57B8300B385F6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		51B2C66D16E57B8300B385F6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		51B2C66F16E57B8300B385F6 /* TCFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCFirstViewController.h; sourceTree = "<group>"; };
-		51B2C67016E57B8300B385F6 /* TCFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCFirstViewController.m; sourceTree = "<group>"; };
 		51B2C67216E57B8300B385F6 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
 		51B2C67416E57B8300B385F6 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
-		51B2C67616E57B8300B385F6 /* TCSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCSecondViewController.h; sourceTree = "<group>"; };
-		51B2C67716E57B8300B385F6 /* TCSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCSecondViewController.m; sourceTree = "<group>"; };
 		51B2C67916E57B8300B385F6 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
 		51B2C67B16E57B8300B385F6 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
 		51B2C68216E57B8400B385F6 /* TraCareTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TraCareTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,8 +113,9 @@
 		51B2C6B816E5B99C00B385F6 /* GenderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenderViewController.m; sourceTree = "<group>"; };
 		51B51F5E16FE8F6E008EE4A5 /* DefaultUnitsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultUnitsViewController.h; sourceTree = "<group>"; };
 		51B51F5F16FE8F6E008EE4A5 /* DefaultUnitsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultUnitsViewController.m; sourceTree = "<group>"; };
-		51B51F6416FE9164008EE4A5 /* Preferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Preferences.h; sourceTree = "<group>"; };
-		51B51F6516FE9164008EE4A5 /* Preferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Preferences.m; sourceTree = "<group>"; };
+		51E384D51706687C00C64BF8 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		51E384DA17067B4F00C64BF8 /* SymptomTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SymptomTypes.h; sourceTree = "<group>"; };
+		51E384DB17067B4F00C64BF8 /* SymptomTypes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SymptomTypes.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51E384D61706687C00C64BF8 /* CoreLocation.framework in Frameworks */,
 				51715B3A16FCE2E100667936 /* CoreData.framework in Frameworks */,
 				515DA5C716F7F6BE0039C690 /* MapKit.framework in Frameworks */,
 				51B2C65516E57B8300B385F6 /* UIKit.framework in Frameworks */,
@@ -142,6 +148,7 @@
 		51B2C64816E57B8300B385F6 = {
 			isa = PBXGroup;
 			children = (
+				51E384D51706687C00C64BF8 /* CoreLocation.framework */,
 				51715B3916FCE2E100667936 /* CoreData.framework */,
 				51715B3316FCE16400667936 /* TraCare.xcdatamodeld */,
 				515DA5C616F7F6BE0039C690 /* MapKit.framework */,
@@ -183,12 +190,8 @@
 				51B2C66316E57B8300B385F6 /* TCAppDelegate.h */,
 				51B2C66416E57B8300B385F6 /* TCAppDelegate.m */,
 				51B2C66C16E57B8300B385F6 /* MainStoryboard.storyboard */,
-				51B2C66F16E57B8300B385F6 /* TCFirstViewController.h */,
-				51B2C67016E57B8300B385F6 /* TCFirstViewController.m */,
 				51B2C67216E57B8300B385F6 /* first.png */,
 				51B2C67416E57B8300B385F6 /* first@2x.png */,
-				51B2C67616E57B8300B385F6 /* TCSecondViewController.h */,
-				51B2C67716E57B8300B385F6 /* TCSecondViewController.m */,
 				51B2C67916E57B8300B385F6 /* second.png */,
 				51B2C67B16E57B8300B385F6 /* second@2x.png */,
 				51B2C65B16E57B8300B385F6 /* Supporting Files */,
@@ -240,8 +243,10 @@
 		51B2C69C16E57C5700B385F6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				51B51F6416FE9164008EE4A5 /* Preferences.h */,
-				51B51F6516FE9164008EE4A5 /* Preferences.m */,
+				51E384DA17067B4F00C64BF8 /* SymptomTypes.h */,
+				51E384DB17067B4F00C64BF8 /* SymptomTypes.m */,
+				51895C5816FFDD7C00EFC453 /* Preferences.h */,
+				51895C5916FFDD7C00EFC453 /* Preferences.m */,
 				51715B4816FD530300667936 /* UserDetails.h */,
 				51715B4916FD530300667936 /* UserDetails.m */,
 				51715B4B16FD56E400667936 /* Gender.h */,
@@ -276,6 +281,10 @@
 				51B51F5F16FE8F6E008EE4A5 /* DefaultUnitsViewController.m */,
 				5112303B16FF8E4100905F61 /* HeightViewController.h */,
 				5112303C16FF8E4100905F61 /* HeightViewController.m */,
+				516A66F81705E38A00E309BC /* TextEntryViewController.h */,
+				516A66F91705E38A00E309BC /* TextEntryViewController.m */,
+				516A66FE17060CC300E309BC /* SymptomTypeViewController.h */,
+				516A66FF17060CC300E309BC /* SymptomTypeViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -398,8 +407,6 @@
 			files = (
 				51B2C66116E57B8300B385F6 /* main.m in Sources */,
 				51B2C66516E57B8300B385F6 /* TCAppDelegate.m in Sources */,
-				51B2C67116E57B8300B385F6 /* TCFirstViewController.m in Sources */,
-				51B2C67816E57B8300B385F6 /* TCSecondViewController.m in Sources */,
 				51B2C6A116E58DDB00B385F6 /* PreferencesViewController.m in Sources */,
 				51B2C6A416E58E0D00B385F6 /* EnterEntryViewController.m in Sources */,
 				51B2C6A716E58E2800B385F6 /* SummaryViewController.m in Sources */,
@@ -410,8 +417,11 @@
 				51715B4D16FD56E400667936 /* Gender.m in Sources */,
 				514D9B3216FE6C58006BFD60 /* WeightViewController.m in Sources */,
 				51B51F6016FE8F6E008EE4A5 /* DefaultUnitsViewController.m in Sources */,
-				51B51F6616FE9164008EE4A5 /* Preferences.m in Sources */,
 				5112303D16FF8E4100905F61 /* HeightViewController.m in Sources */,
+				51895C5A16FFDD7C00EFC453 /* Preferences.m in Sources */,
+				516A66FA1705E38A00E309BC /* TextEntryViewController.m in Sources */,
+				516A670017060CC300E309BC /* SymptomTypeViewController.m in Sources */,
+				51E384DC17067B4F00C64BF8 /* SymptomTypes.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

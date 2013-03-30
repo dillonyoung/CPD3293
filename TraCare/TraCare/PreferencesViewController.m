@@ -39,11 +39,14 @@ static NSString* const HeightViewSegueIdentifier = @"Height Select View";
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    
+    // Get the app delegate and user details and preferences
     self.appDelegate = (TCAppDelegate *)[[UIApplication sharedApplication] delegate];
     self.preferences = self.appDelegate.preferences;
     self.userdetails = self.appDelegate.userdetails;
+    
+    [super viewDidLoad];
+	// Do any additional setup after loading the view.
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -108,6 +111,14 @@ static NSString* const HeightViewSegueIdentifier = @"Height Select View";
     self.preferences.nutrition = self.trackNutrition.on;
 }
 
+- (IBAction)changeTrackSymptom:(id)sender {
+    self.preferences.symptom = self.trackSymptom.on;
+}
+
+- (IBAction)changeTrackLocation:(id)sender {
+    self.preferences.location = self.trackLocation.on;
+}
+
 /**
  * Hides the keyboard
  */
@@ -125,6 +136,8 @@ static NSString* const HeightViewSegueIdentifier = @"Height Select View";
     self.trackQualityofSleep.on = self.preferences.qualityofsleep;
     self.trackFitness.on = self.preferences.fitness;
     self.trackNutrition.on = self.preferences.nutrition;
+    self.trackSymptom.on = self.preferences.symptom;
+    self.trackLocation.on = self.preferences.location;
     
     // Update the default units
     if (self.preferences.defaultunits == 1) {

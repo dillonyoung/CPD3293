@@ -10,6 +10,7 @@
 
 #import "Preferences.h"
 #import "UserDetails.h"
+#import "SymptomTypes.h"
 
 @interface TCAppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -20,8 +21,8 @@
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
 @property (strong, nonatomic) Preferences *preferences;
-
 @property (strong, nonatomic) UserDetails *userdetails;
+@property (strong, nonatomic) NSMutableArray *symptomtypes;
 
 - (NSURL *)applicationDocumentsDirectory;
 

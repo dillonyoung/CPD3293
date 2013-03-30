@@ -2,7 +2,7 @@
 //  Preferences.m
 //  TraCare
 //
-//  Created by Dillon on 2013-03-23.
+//  Created by Dillon on 2013-03-24.
 //  Copyright (c) 2013 Dillon Young. All rights reserved.
 //
 
@@ -12,12 +12,14 @@
 @implementation Preferences
 
 @dynamic bloodpressure;
+@dynamic defaultunits;
 @dynamic energy;
 @dynamic fitness;
 @dynamic nutrition;
 @dynamic qualityofsleep;
 @dynamic sleep;
 @dynamic weight;
-@dynamic defaultunits;
+@dynamic symptom;
+@dynamic location;
 
 @end
