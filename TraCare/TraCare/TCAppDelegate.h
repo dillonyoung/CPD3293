@@ -11,6 +11,8 @@
 #import "Preferences.h"
 #import "UserDetails.h"
 #import "SymptomTypes.h"
+#import "Locations.h"
+#import "Entries.h"
 
 @interface TCAppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -23,7 +25,14 @@
 @property (strong, nonatomic) Preferences *preferences;
 @property (strong, nonatomic) UserDetails *userdetails;
 @property (strong, nonatomic) NSMutableArray *symptomtypes;
+@property (strong, nonatomic) NSMutableArray *locations;
+@property (strong, nonatomic) NSMutableArray *entries;
 
 - (NSURL *)applicationDocumentsDirectory;
+
+- (void)loadSymptomTypes;
+- (void)loadLocations;
+- (void)loadEntries;
+- (void)saveData;
 
 @end

@@ -19,6 +19,8 @@
 @synthesize preferences = _preferences;
 @synthesize userdetails = _userdetails;
 @synthesize symptomtypes = _symptomtypes;
+@synthesize locations = _locations;
+@synthesize entries = _entries;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -40,6 +42,12 @@
     
     // Load the symptom types entity data
     [self loadSymptomTypes];
+    
+    // Load the locations entity data
+    [self loadLocations];
+    
+    // Load the entries entity data
+    [self loadEntries];
     
     // Return YES
     return YES;
@@ -124,8 +132,7 @@
     return _managedObjectModel;
 }
 
-// Returns the persistent store coordinator for the application.
-// If the coordinator doesn't already exist, it is created and the application's store added to it.
+
 /**
  * Returns the persistent store coordinator for the application
  */
@@ -307,42 +314,33 @@
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity: [NSEntityDescription entityForName: @"SymptomTypes" inManagedObjectContext: [self managedObjectContext]]];
     
-    // Get the count of entries in the symptom types entity
-    NSError *errorCount = nil;
-    
     // Initialize the symptom types array
     NSArray *stypes = [[NSArray alloc] initWithObjects:@"Not Specified", @"Other", @"Abdominal Pain", @"Chest Pain", @"Constipation", @"Cought", @"Diarrea", @"Dizziness", @"Eye Discomfort", @"Foot Pain", @"Headaches", @"Hip Pain", @"Knee Pain", @"Low Back Pain", @"Nasal Congestion", @"Nausea", @"Neck Pain", @"Numbness", @"Shortness of Breath", @"Shoulder Pain", @"Sore Throat", @"Vision Problems", @"Wheezing", nil];
     
-    // Check to see if the number of entities is not equal to the number of symptoms
-    //if (count != [stypes count]) {
         
-        // Remove all entries from symptom types entity
-        //[self deleteAllObjectsWithEntityName:@"SymptomTypes" inContext:[self managedObjectContext]];
-        
-        for (int count = 0; count < [stypes count]; count++) {
+    for (int count = 0; count < [stypes count]; count++) {
 
-            [request setPredicate:[NSPredicate predicateWithFormat:@"symptomdesc == %@", stypes[count]]];
+        [request setPredicate:[NSPredicate predicateWithFormat:@"symptomdesc == %@", stypes[count]]];
             
-            NSError *error;
+        NSError *error;
             
-            if ([[self managedObjectContext] countForFetchRequest:request error:&error]) {
+        if ([[self managedObjectContext] countForFetchRequest:request error:&error]) {
                 
-            } else {
+        } else {
              
-                // Create a new symptom types entity
-                SymptomTypes *newsymptom = [NSEntityDescription insertNewObjectForEntityForName:@"SymptomTypes" inManagedObjectContext:[self managedObjectContext]];
+            // Create a new symptom types entity
+            SymptomTypes *newsymptom = [NSEntityDescription insertNewObjectForEntityForName:@"SymptomTypes" inManagedObjectContext:[self managedObjectContext]];
                 
-                // Update the values of the symptom types entity to the default values
-                newsymptom.id = 1;
-                newsymptom.symptomdesc = stypes[count];
+            // Update the values of the symptom types entity to the default values
+            newsymptom.id = 1;
+            newsymptom.symptomdesc = stypes[count];
                 
-                // Attempt to save the preferences
-                if( ! [[self managedObjectContext] save:&error] ){
-                    NSLog(@"Cannot save data: %@", [error localizedDescription]);
-                }
+            // Attempt to save the preferences
+            if( ! [[self managedObjectContext] save:&error] ){
+                NSLog(@"Cannot save data: %@", [error localizedDescription]);
             }
         }
-    //}
+    }
 }
 
 /**
@@ -350,6 +348,8 @@
  */
 - (void)loadSymptomTypes {
     NSError *error;
+    
+    [self.symptomtypes removeAllObjects];
     
     // Prepare a fetch request for the symptom types entity
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
@@ -365,8 +365,66 @@
     self.symptomtypes = [[NSMutableArray alloc] init];
     for (SymptomTypes *info in fetchedObjects) {
         [self.symptomtypes addObject:info];
-        NSLog(@"Entity: %@", info.symptomdesc);
     }
+}
+
+
+#pragma mark - Location Support
+
+/**
+ * Loads the locations from the data file
+ */
+- (void)loadLocations {
+    NSError *error;
+    
+    [self.locations removeAllObjects];
+    
+    // Prepare a fetch request for the locations entity
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Locations" inManagedObjectContext:[self managedObjectContext]];
+    
+    // Set the entity to the locations entity
+    [fetchRequest setEntity:entity];
+    
+    // Fetch the entries into an array
+    NSArray *fetchedObjects = [[self managedObjectContext] executeFetchRequest:fetchRequest error:&error];
+    
+    // Loop through the entries and store them in the locations class
+    self.locations = [[NSMutableArray alloc] init];
+    for (Locations *info in fetchedObjects) {
+        [self.locations addObject:info];
+    }
+}
+
+
+#pragma mark - Entries Support
+
+/**
+ * Loads the entries from the data file
+ */
+- (void)loadEntries {
+    NSError *error;
+    
+    [self.entries removeAllObjects];
+    
+    // Prepare a fetch request for the entries entity
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Entries" inManagedObjectContext:[self managedObjectContext]];
+    
+    // Set the entity to the entries entity
+    [fetchRequest setEntity:entity];
+    
+    // Fetch the entries into an array
+    NSArray *fetchedObjects = [[self managedObjectContext] executeFetchRequest:fetchRequest error:&error];
+    
+    // Loop through the entries and store them in the locations class
+    self.entries = [[NSMutableArray alloc] init];
+    for (Entries *info in fetchedObjects) {
+        [self.entries addObject:info];
+    }
+    
+    // Inform the app that the entries list has changed
+    //[[NSNotificationCenter defaultCenter] postNotificationName:@"EntriesListHasChanged" object:self];
 }
 
 

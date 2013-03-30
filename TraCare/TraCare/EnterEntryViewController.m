@@ -9,6 +9,8 @@
 #import "EnterEntryViewController.h"
 #import "TextEntryViewController.h"
 #import "SymptomTypeViewController.h"
+#import "Locations.h"
+#import "Entries.h"
 
 static NSString* const NewEntryFitnessActivityViewSegueIdentifier = @"New Entry Fitness Activity";
 static NSString* const NewEntryNutritionViewSegueIdentifier = @"New Entry Nutrition";
@@ -27,6 +29,12 @@ static NSString* const NewEntrySymptomsTypeViewSegueIdentifier = @"New Entry Sym
 @synthesize preferences = _preferences;
 @synthesize userdetails = _userdetails;
 @synthesize symptomtypes = _symptomtypes;
+@synthesize locations = _locations;
+@synthesize entries = _entries;
+
+@synthesize managedObjectContext = _managedObjectContext;
+@synthesize managedObjectModel = _managedObjectModel;
+@synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
 @synthesize mapview = _mapview;
 
@@ -64,6 +72,11 @@ static NSString* const NewEntrySymptomsTypeViewSegueIdentifier = @"New Entry Sym
     self.preferences = self.appDelegate.preferences;
     self.userdetails = self.appDelegate.userdetails;
     self.symptomtypes = self.appDelegate.symptomtypes;
+    self.locations = self.appDelegate.locations;
+    self.entries = self.appDelegate.entries;
+    self.managedObjectContext = self.appDelegate.managedObjectContext;
+    self.managedObjectModel = self.appDelegate.managedObjectModel;
+    self.persistentStoreCoordinator = self.appDelegate.persistentStoreCoordinator;
     
     // Set initial values
     if (self.preferences.defaultunits == 1) {
@@ -720,6 +733,149 @@ static NSString* const NewEntrySymptomsTypeViewSegueIdentifier = @"New Entry Sym
 
 - (IBAction)changeQualitySleep:(id)sender {
     self.currentQualitySleep.text = [self.qualitySleep objectAtIndex:self.stepQualitySleep.value];
+}
+
+- (IBAction)saveNewEntry:(id)sender {
+    
+    NSError *error;
+    
+    // Create a new locations instance
+    NSInteger locationIndex;
+    
+    // Check to see if the location should be saved
+    if (self.preferences.location) {
+        locationIndex = [self checkForLocation:self.currentLocation];
+
+        if (locationIndex == -1) {
+            locationIndex = [self addNewLocation:self.currentLocation];
+        }
+    } else {
+        locationIndex = -1;
+    }
+    
+    // Create an new entry instance
+    Entries *newEntry = [NSEntityDescription insertNewObjectForEntityForName:@"Entries" inManagedObjectContext:[self managedObjectContext]];
+    
+    // Check to see if the weight should be saved
+    if (self.preferences.weight) {
+        
+        // Check to see which default units mode is selected and get the weight
+        if (self.preferences.defaultunits == 1) {
+            float ounces = self.stepWeight.value;
+            float grams = ounces / 0.035274;
+            newEntry.weight = grams;
+        } else {
+            float grams = self.stepWeight.value;
+            newEntry.weight = grams;
+        }
+    } else {
+        newEntry.weight = -1;
+    }
+    
+    // Check to see if the hours of sleep should be saved
+    if (self.preferences.sleep) {
+        newEntry.hoursofsleep = self.stepHours.value;
+    } else {
+        newEntry.hoursofsleep = -1;
+    }
+
+    // Check to see if the blood pressure should be saved
+    if (self.preferences.bloodpressure) {
+        newEntry.bloodpressuresystolic = self.stepBloodPressureSystolic.value;
+        newEntry.bloodpressurediastolic = self.stepBloodPressureDiastolic.value;
+    } else {
+        newEntry.bloodpressuresystolic = -1;
+        newEntry.bloodpressurediastolic = -1;
+    }
+
+    // Check to see if the energy level should be saved
+    if (self.preferences.energy) {
+        newEntry.everylevel = self.stepEnergyLevel.value;
+    } else {
+        newEntry.everylevel = -1;
+    }
+    
+    // Check to see if the quality of sleep should be saved
+    if (self.preferences.qualityofsleep) {
+        newEntry.qualityofsleep = self.stepQualitySleep.value;
+    } else {
+        newEntry.qualityofsleep = -1;
+    }
+    
+    // Check to see if the fitness acitivity should be saved
+    if (self.preferences.fitness) {
+        newEntry.fitnessactivity = self.currentFitnessActivity.text;
+    } else {
+        newEntry.fitnessactivity = @"<{[blank]}>";
+    }
+    
+    // Check to see if the nutrition should be saved
+    if (self.preferences.nutrition) {
+        newEntry.nutrition = self.currentNutrition.text;
+    } else {
+        newEntry.nutrition = @"<{[blank]}>";
+    }
+    
+    // Check to see if the symptoms should be checked
+    if (self.preferences.symptom) {
+        newEntry.symptomdescription = self.currentSymptomDescription.text;
+    
+        for (int count = 0; count < [self.symptomtypes count]; count++) {
+            if ([self.currentSymptomType.text isEqualToString:[self.symptomtypes[count] symptomdesc]]) {
+                newEntry.symptomtype = count;
+            }
+        }
+    } else {
+        newEntry.symptomdescription = @"<{[blank]}>";
+        newEntry.symptomtype = -1;
+    }
+    
+    // Get the date
+    newEntry.dateentered =  [[NSDate date] timeIntervalSince1970];
+    
+    // Attempt to save the entry
+    if( ! [[self managedObjectContext] save:&error] ){
+        NSLog(@"Cannot save data: %@", [error localizedDescription]);
+    }
+    
+    // Inform the app that the entries list has changed
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"EntriesListHasChanged" object:self];
+    
+    // Navigate back to the entries list
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+- (NSInteger)checkForLocation:(CLLocation*)location {
+    NSInteger index = -1;
+
+    for (int count = 0; count < [self.locations count]; count++) {
+        if ([self.locations[count] latitude] == location.coordinate.latitude && [self.locations[count] longitude] == location.coordinate.longitude) {
+            index = count;
+        }
+    }
+    
+    return index;
+}
+
+- (NSInteger)addNewLocation:(CLLocation*)location {
+    
+    NSError *error;
+    
+    // Create a new location entry
+    Locations *newlocation = [NSEntityDescription insertNewObjectForEntityForName:@"Locations" inManagedObjectContext:[self managedObjectContext]];
+    
+    newlocation.index = [self.locations count];
+    newlocation.latitude = location.coordinate.latitude;
+    newlocation.longitude = location.coordinate.longitude;
+
+    // Attempt to save the location
+    if( ! [[self managedObjectContext] save:&error] ){
+        NSLog(@"Cannot save data: %@", [error localizedDescription]);
+    }
+    
+    [self.appDelegate loadLocations];
+
+    return [self.locations count] - 1;
 }
 
 /**

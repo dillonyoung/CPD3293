@@ -19,8 +19,12 @@
 @property (strong, nonatomic) Preferences *preferences;
 @property (strong, nonatomic) UserDetails *userdetails;
 @property (strong, nonatomic) NSMutableArray *symptomtypes;
+@property (strong, nonatomic) NSMutableArray *locations;
+@property (strong, nonatomic) NSMutableArray *entries;
 
-- (IBAction)cancelEntry:(id)sender;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (strong, nonatomic) NSManagedObjectModel *managedObjectModel;
+@property (strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
 // Create the outlet for the map view
 @property (strong, nonatomic) IBOutlet MKMapView *mapview;
@@ -58,7 +62,8 @@
 - (IBAction)changeBloodPressureDiastolic:(id)sender;
 - (IBAction)changeEnergyLevel:(id)sender;
 - (IBAction)changeQualitySleep:(id)sender;
-
+- (IBAction)saveNewEntry:(id)sender;
+- (IBAction)cancelEntry:(id)sender;
 - (IBAction)hideKeyboard:(id)sender;
 
 @end

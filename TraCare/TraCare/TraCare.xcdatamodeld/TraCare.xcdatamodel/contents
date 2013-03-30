@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="12D78" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Locations" syncable="YES">
+    <entity name="Entries" representedClassName="Entries" syncable="YES">
+        <attribute name="bloodpressurediastolic" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="bloodpressuresystolic" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="dateentered" attributeType="Date" syncable="YES"/>
+        <attribute name="everylevel" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="fitnessactivity" attributeType="String" syncable="YES"/>
+        <attribute name="hoursofsleep" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="location" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="nutrition" attributeType="String" syncable="YES"/>
+        <attribute name="qualityofsleep" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="symptomdescription" attributeType="String" syncable="YES"/>
+        <attribute name="symptomtype" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="weight" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+    </entity>
+    <entity name="Locations" representedClassName="Locations" syncable="YES">
         <attribute name="index" attributeType="Integer 16" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="latitude" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="longitude" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
     </entity>
     <entity name="Preferences" representedClassName="Preferences" syncable="YES">
         <attribute name="bloodpressure" attributeType="Boolean" defaultValueString="YES" syncable="YES"/>
@@ -26,9 +42,10 @@
         <attribute name="weight" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
     </entity>
     <elements>
+        <element name="Locations" positionX="160" positionY="192" width="128" height="90"/>
         <element name="Preferences" positionX="160" positionY="192" width="128" height="195"/>
         <element name="SymptomTypes" positionX="160" positionY="192" width="128" height="75"/>
         <element name="UserDetails" positionX="160" positionY="192" width="128" height="105"/>
-        <element name="Locations" positionX="160" positionY="192" width="128" height="60"/>
+        <element name="Entries" positionX="160" positionY="192" width="128" height="225"/>
     </elements>
 </model>

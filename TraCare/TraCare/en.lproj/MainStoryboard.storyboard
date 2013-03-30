@@ -727,28 +727,49 @@
             </objects>
             <point key="canvasLocation" x="1093" y="1677"/>
         </scene>
-        <!--Table View Controller - Entries-->
+        <!--Entries View Controller - Entries-->
         <scene sceneID="c54-FJ-f2j">
             <objects>
-                <tableViewController id="Zgg-e2-3jc" sceneMemberID="viewController">
+                <tableViewController id="Zgg-e2-3jc" customClass="EntriesViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="7Y2-ce-fZ3">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Fl3-ye-Azr">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Entry Cell" id="Fl3-ye-Azr" customClass="EntryCell">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ANI-QS-hcZ">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="260" id="T6n-t1-HeX"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <constraints>
+                                    <constraint firstItem="ANI-QS-hcZ" firstAttribute="leading" secondItem="Fl3-ye-Azr" secondAttribute="leading" constant="20" type="default" id="cZW-dE-ioX"/>
+                                    <constraint firstItem="ANI-QS-hcZ" firstAttribute="top" secondItem="Fl3-ye-Azr" secondAttribute="top" constant="11" id="pdk-wO-ypM"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dateLabel" destination="ANI-QS-hcZ" id="rsw-9B-wSa"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Zgg-e2-3jc" id="Sv5-Tm-mTm"/>
+                            <outlet property="delegate" destination="Zgg-e2-3jc" id="3tp-91-Uhu"/>
+                        </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Entries" id="KbF-fu-E99">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="FME-q7-KEm">
+                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="FME-q7-KEm">
                             <connections>
                                 <segue destination="kXN-6w-qYP" kind="push" id="PQN-Jd-xMt"/>
                             </connections>
@@ -1166,7 +1187,11 @@
                                 <action selector="cancelEntry:" destination="kXN-6w-qYP" id="9Ds-2H-BWp"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="KXe-VJ-cNu"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="KXe-VJ-cNu">
+                            <connections>
+                                <action selector="saveNewEntry:" destination="kXN-6w-qYP" id="Mwy-tq-rw5"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="currentBloodPressure" destination="zOg-dt-sfg" id="Vyd-JJ-uBJ"/>
@@ -1333,6 +1358,7 @@
                 <relationship kind="action" name="changeQualitySleep:"/>
                 <relationship kind="action" name="changeWeight:"/>
                 <relationship kind="action" name="hideKeyboard:"/>
+                <relationship kind="action" name="saveNewEntry:"/>
                 <relationship kind="outlet" name="currentBloodPressure" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="currentEnergyLevel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="currentFitnessActivity" candidateClass="UILabel"/>
@@ -1349,6 +1375,16 @@
                 <relationship kind="outlet" name="stepHours" candidateClass="UIStepper"/>
                 <relationship kind="outlet" name="stepQualitySleep" candidateClass="UIStepper"/>
                 <relationship kind="outlet" name="stepWeight" candidateClass="UIStepper"/>
+            </relationships>
+        </class>
+        <class className="EntriesViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EntriesViewController.h"/>
+        </class>
+        <class className="EntryCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EntryCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="timeIntervalLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="GenderViewController" superclassName="UITableViewController">
