@@ -21,6 +21,7 @@
 		51715B4116FCE78000667936 /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51715B4016FCE78000667936 /* TabBarViewController.m */; };
 		51715B4A16FD530300667936 /* UserDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 51715B4916FD530300667936 /* UserDetails.m */; };
 		51715B4D16FD56E400667936 /* Gender.m in Sources */ = {isa = PBXBuildFile; fileRef = 51715B4C16FD56E400667936 /* Gender.m */; };
+		5171A8881708A411008882C9 /* DateSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5171A8871708A410008882C9 /* DateSelectViewController.m */; };
 		5177918917072EDD00B71BEB /* EntriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5177918817072EDD00B71BEB /* EntriesViewController.m */; };
 		5177918C1707340600B71BEB /* EntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5177918B1707340600B71BEB /* EntryCell.m */; };
 		51895C5A16FFDD7C00EFC453 /* Preferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 51895C5916FFDD7C00EFC453 /* Preferences.m */; };
@@ -97,6 +98,8 @@
 		51715B4916FD530300667936 /* UserDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDetails.m; sourceTree = "<group>"; };
 		51715B4B16FD56E400667936 /* Gender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gender.h; sourceTree = "<group>"; };
 		51715B4C16FD56E400667936 /* Gender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gender.m; sourceTree = "<group>"; };
+		5171A8861708A410008882C9 /* DateSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateSelectViewController.h; sourceTree = "<group>"; };
+		5171A8871708A410008882C9 /* DateSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateSelectViewController.m; sourceTree = "<group>"; };
 		5177918717072EDD00B71BEB /* EntriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntriesViewController.h; sourceTree = "<group>"; };
 		5177918817072EDD00B71BEB /* EntriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntriesViewController.m; sourceTree = "<group>"; };
 		5177918A1707340600B71BEB /* EntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryCell.h; sourceTree = "<group>"; };
@@ -336,6 +339,8 @@
 				5132EA67170782A100137220 /* MapViewController.m */,
 				5132EA691707A17E00137220 /* EntryDetailViewController.h */,
 				5132EA6A1707A17E00137220 /* EntryDetailViewController.m */,
+				5171A8861708A410008882C9 /* DateSelectViewController.h */,
+				5171A8871708A410008882C9 /* DateSelectViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -486,6 +491,7 @@
 				5132EA68170782A100137220 /* MapViewController.m in Sources */,
 				5132EA6B1707A17E00137220 /* EntryDetailViewController.m in Sources */,
 				5132EA6E1707BE8B00137220 /* Entries.m in Sources */,
+				5171A8881708A411008882C9 /* DateSelectViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

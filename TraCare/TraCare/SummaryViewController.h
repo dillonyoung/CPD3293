@@ -10,4 +10,11 @@
 
 @interface SummaryViewController : UITableViewController
 
+@property (strong, nonatomic) IBOutlet UILabel *currentType;
+@property (strong, nonatomic) IBOutlet UILabel *currentStartDate;
+@property (strong, nonatomic) IBOutlet UILabel *currentEndDate;
+
+@property (strong, nonatomic) NSDate *startDate;
+@property (strong, nonatomic) NSDate *endDate;
+
 @end

@@ -8,11 +8,19 @@
 
 #import "SummaryViewController.h"
 
+#import "DateSelectViewController.h"
+
+static NSString* const StartDateViewSegueIdentifier = @"Start Date Select View";
+static NSString* const EndDateViewSegueIdentifier = @"End Date Select View";
+
 @interface SummaryViewController ()
 
 @end
 
 @implementation SummaryViewController
+
+@synthesize startDate = _startDate;
+@synthesize endDate = _endDate;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -26,12 +34,25 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    // Set the end date
+    self.endDate = [NSDate date];
+    self.currentEndDate.text = [NSDateFormatter localizedStringFromDate:self.endDate
+                                                dateStyle:NSDateFormatterLongStyle
+                                                timeStyle:NSDateFormatterShortStyle];
+    
+    // Set the start date
+    NSDateComponents *components = [[NSDateComponents alloc] init];
+    [components setDay:-7];
+    NSDate *date = [[NSCalendar currentCalendar] dateByAddingComponents:components toDate:[NSDate date] options:0];
+    self.startDate = date;
+    self.currentStartDate.text = [NSDateFormatter localizedStringFromDate:self.startDate
+                                                              dateStyle:NSDateFormatterLongStyle
+                                                              timeStyle:NSDateFormatterShortStyle];
+    
+    // Register notification center for the changing date
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dateHasChanged:) name:@"DateHasChanged" object:nil];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -40,70 +61,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 
@@ -116,6 +73,45 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+}
+
+
+- (void)dateHasChanged:(NSNotification *)notification {
+    
+    // Get the dictionary
+    NSDictionary *entryData = [notification userInfo];
+    
+    // Check to see which field needs to be updated
+    if ([[entryData valueForKey:@"Field"] isEqual:@"Start"]) {
+        self.startDate = [entryData valueForKey:@"Date"];
+        NSLog(@"Yes: %@", self.startDate);
+        self.currentStartDate.text = [NSDateFormatter localizedStringFromDate:self.startDate
+                                                                    dateStyle:NSDateFormatterLongStyle
+                                                                    timeStyle:NSDateFormatterShortStyle];
+    } else if ([[entryData valueForKey:@"Field"] isEqual:@"End"]) {
+        self.endDate = [entryData valueForKey:@"Date"];
+        self.currentEndDate.text = [NSDateFormatter localizedStringFromDate:self.endDate
+                                                                    dateStyle:NSDateFormatterLongStyle
+                                                                    timeStyle:NSDateFormatterShortStyle];
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:StartDateViewSegueIdentifier]) {
+        DateSelectViewController* controller = segue.destinationViewController;
+        controller.title = @"Start Date";
+        NSMutableDictionary *entryData = [[NSMutableDictionary alloc] init];
+        [entryData setObject:@"Start" forKey:@"Field"];
+        controller.entryData = entryData;
+        controller.date = self.startDate;
+    } else if ([segue.identifier isEqualToString:EndDateViewSegueIdentifier]) {
+        DateSelectViewController* controller = segue.destinationViewController;
+        controller.title = @"End Date";
+        NSMutableDictionary *entryData = [[NSMutableDictionary alloc] init];
+        [entryData setObject:@"End" forKey:@"Field"];
+        controller.entryData = entryData;
+        controller.date = self.endDate;
+    }
 }
 
 @end

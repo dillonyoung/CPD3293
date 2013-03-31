@@ -117,6 +117,7 @@ static NSString* const NewEntrySymptomsTypeViewSegueIdentifier = @"New Entry Sym
     
     
     if (self.preferences.location) {
+        
         // Initialize the location manager
         locationManager = [[CLLocationManager alloc] init];
     
