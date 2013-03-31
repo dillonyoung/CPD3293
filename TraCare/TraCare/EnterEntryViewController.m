@@ -790,9 +790,9 @@ static NSString* const NewEntrySymptomsTypeViewSegueIdentifier = @"New Entry Sym
 
     // Check to see if the energy level should be saved
     if (self.preferences.energy) {
-        newEntry.everylevel = self.stepEnergyLevel.value;
+        newEntry.energylevel = self.stepEnergyLevel.value;
     } else {
-        newEntry.everylevel = -1;
+        newEntry.energylevel = -1;
     }
     
     // Check to see if the quality of sleep should be saved

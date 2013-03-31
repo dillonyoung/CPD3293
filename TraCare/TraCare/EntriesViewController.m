@@ -11,6 +11,9 @@
 #import "Locations.h"
 #import "Entries.h"
 #import "EntryCell.h"
+#import "EntryDetailViewController.h"
+
+static NSString* const EntryDetailViewSegueIdentifier = @"Entry Detail View";
 
 @interface EntriesViewController ()
 
@@ -71,7 +74,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    //[self reloadTableData];
+    [self reloadTableData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -109,7 +112,6 @@
     return cell;
 }
 
-
 - (void)entriesListHasChanged:(NSNotification*)notification {
     [self reloadTableData];
 }
@@ -117,6 +119,19 @@
 - (void)reloadTableData {
     [self loadEntries];
     [self.tableView reloadData];
+}
+
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:EntryDetailViewSegueIdentifier]) {
+        EntryDetailViewController* controller = segue.destinationViewController;
+        NSIndexPath *path = [self.tableView indexPathForSelectedRow];
+        NSLog(@"Yes: %ld", (long)path.row);
+        NSLog(@"C: %lu", (unsigned long)[self.entries count]);
+        controller.currentEntry = ([self.entries count] - 1) - path.row;
+        [self.tableView deselectRowAtIndexPath:path animated:NO];
+    }
 }
 
 

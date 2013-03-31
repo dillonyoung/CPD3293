@@ -29,7 +29,7 @@
 }
 
 - (void)configureWithEntry:(Entries *)entry {
-    //self.dateLabel.text = [NSString stringWithFormat:@"%f", entry.dateentered];
+
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:entry.dateentered];
     self.dateLabel.text = [NSDateFormatter localizedStringFromDate:date
                                                          dateStyle:NSDateFormatterLongStyle

@@ -2,7 +2,7 @@
 //  Entries.m
 //  TraCare
 //
-//  Created by Dillon on 2013-03-29.
+//  Created by Dillon on 2013-03-30.
 //  Copyright (c) 2013 Dillon Young. All rights reserved.
 //
 
@@ -11,17 +11,17 @@
 
 @implementation Entries
 
-@dynamic weight;
-@dynamic hoursofsleep;
-@dynamic bloodpressuresystolic;
 @dynamic bloodpressurediastolic;
-@dynamic everylevel;
-@dynamic qualityofsleep;
-@dynamic fitnessactivity;
-@dynamic nutrition;
-@dynamic symptomtype;
-@dynamic symptomdescription;
-@dynamic location;
+@dynamic bloodpressuresystolic;
 @dynamic dateentered;
+@dynamic energylevel;
+@dynamic fitnessactivity;
+@dynamic hoursofsleep;
+@dynamic location;
+@dynamic nutrition;
+@dynamic qualityofsleep;
+@dynamic symptomdescription;
+@dynamic symptomtype;
+@dynamic weight;
 
 @end
