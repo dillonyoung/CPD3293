@@ -8,12 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-#import <CoreData/CoreData.h>
-
-#import "Preferences.h"
-
 @interface TabBarViewController : UITabBarController
-
-//@property (strong, nonatomic) Preferences pref;
 
 @end

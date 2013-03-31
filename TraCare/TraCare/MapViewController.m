@@ -63,11 +63,19 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [self loadEntries];
-    [self loadLocations];
+    
+    // Load the entries
+    [self.appDelegate loadEntries];
+    self.entries = self.appDelegate.entries;
+    
+    // Load the locations
+    [self.appDelegate loadLocations];
+    self.locations = self.appDelegate.locations;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    
+    // Start tracking the user
     [locationManager startUpdatingLocation];
 }
 
@@ -118,25 +126,28 @@
         
         for (int ecount = 0; ecount < [self.entries count]; ecount++) {
             Entries *entry = self.entries[ecount];
-            Locations *location = self.locations[entry.location];
             
-            if (location.latitude == 0 && location.longitude == 0) {
+            if (entry.location >= 0) {
+                Locations *location = self.locations[entry.location];
+            
+                if (location.latitude == 0 && location.longitude == 0) {
                 
-            } else {
+                } else {
             
-                // Create a location
-                CLLocationCoordinate2D entryLocation;
-                entryLocation.latitude = location.latitude;
-                entryLocation.longitude = location.longitude;
+                    // Create a location
+                    CLLocationCoordinate2D entryLocation;
+                    entryLocation.latitude = location.latitude;
+                    entryLocation.longitude = location.longitude;
             
-                NSDate *date = [NSDate dateWithTimeIntervalSince1970:entry.dateentered];
+                    NSDate *date = [NSDate dateWithTimeIntervalSince1970:entry.dateentered];
                 
-                MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
-                point.coordinate = entryLocation;
-                point.title = [NSDateFormatter localizedStringFromDate:date
+                    MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
+                    point.coordinate = entryLocation;
+                    point.title = [NSDateFormatter localizedStringFromDate:date
                                                              dateStyle:NSDateFormatterLongStyle
                                                              timeStyle:NSDateFormatterShortStyle];
-                [self.mapview addAnnotation:point];
+                    [self.mapview addAnnotation:point];
+                }
             }
         }
         
@@ -155,66 +166,6 @@
     }
     
     [locationManager stopUpdatingLocation];
-}
-
-
-
-#pragma mark - Location Support
-
-/**
- * Loads the locations from the data file
- */
-- (void)loadLocations {
-    NSError *error;
-    
-    [self.locations removeAllObjects];
-    
-    // Prepare a fetch request for the locations entity
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Locations" inManagedObjectContext:[self managedObjectContext]];
-    
-    // Set the entity to the locations entity
-    [fetchRequest setEntity:entity];
-    
-    // Fetch the entries into an array
-    NSArray *fetchedObjects = [[self managedObjectContext] executeFetchRequest:fetchRequest error:&error];
-    
-    // Loop through the entries and store them in the locations class
-    self.locations = [[NSMutableArray alloc] init];
-    for (Locations *info in fetchedObjects) {
-        [self.locations addObject:info];
-    }
-}
-
-
-#pragma mark - Entries Support
-
-/**
- * Loads the entries from the data file
- */
-- (void)loadEntries {
-    NSError *error;
-    
-    [self.entries removeAllObjects];
-    
-    // Prepare a fetch request for the entries entity
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Entries" inManagedObjectContext:[self managedObjectContext]];
-    
-    // Set the entity to the entries entity
-    [fetchRequest setEntity:entity];
-    
-    // Fetch the entries into an array
-    NSArray *fetchedObjects = [[self managedObjectContext] executeFetchRequest:fetchRequest error:&error];
-    
-    // Loop through the entries and store them in the locations class
-    self.entries = [[NSMutableArray alloc] init];
-    for (Entries *info in fetchedObjects) {
-        [self.entries addObject:info];
-    }
-    
-    // Inform the app that the entries list has changed
-    //[[NSNotificationCenter defaultCenter] postNotificationName:@"EntriesListHasChanged" object:self];
 }
 
 @end

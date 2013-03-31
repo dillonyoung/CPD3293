@@ -830,6 +830,9 @@ static NSString* const NewEntrySymptomsTypeViewSegueIdentifier = @"New Entry Sym
         newEntry.symptomtype = -1;
     }
     
+    // Get the location
+    newEntry.location = locationIndex;
+    
     // Get the date
     newEntry.dateentered =  [[NSDate date] timeIntervalSince1970];
     

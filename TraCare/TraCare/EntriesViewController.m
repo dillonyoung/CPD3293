@@ -113,11 +113,18 @@ static NSString* const EntryDetailViewSegueIdentifier = @"Entry Detail View";
 }
 
 - (void)entriesListHasChanged:(NSNotification*)notification {
+    
+    // Reload the table data
     [self reloadTableData];
 }
 
 - (void)reloadTableData {
-    [self loadEntries];
+    
+    // Load the entries
+    [self.appDelegate loadEntries];
+    self.entries = self.appDelegate.entries;
+    
+    // Reload the table data
     [self.tableView reloadData];
 }
 
@@ -137,36 +144,6 @@ static NSString* const EntryDetailViewSegueIdentifier = @"Entry Detail View";
 
 #pragma mark - Entries Support
 
-
-/**
- * Loads the entries from the data file
- */
-- (void)loadEntries {
-    NSError *error;
-    
-    [self.entries removeAllObjects];
-    
-    // Prepare a fetch request for the entries entity
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Entries" inManagedObjectContext:[self managedObjectContext]];
-    
-    // Set the entity to the entries entity
-    [fetchRequest setEntity:entity];
-    
-    // Fetch the entries into an array
-    NSArray *fetchedObjects = [[self managedObjectContext] executeFetchRequest:fetchRequest error:&error];
-    
-    // Loop through the entries and store them in the locations class
-    self.entries = [[NSMutableArray alloc] init];
-    for (Entries *info in fetchedObjects) {
-        [self.entries addObject:info];
-    }
-    
-    // Inform the app that the entries list has changed
-    //[[NSNotificationCenter defaultCenter] postNotificationName:@"EntriesListHasChanged" object:self];
-}
-
-
 /**
  * Remove the selected entry from the data file
  */
@@ -178,9 +155,6 @@ static NSString* const EntryDetailViewSegueIdentifier = @"Entry Detail View";
     
     [request setEntity:entryEntity];
     
-    //NSPredicate *predicate = [NSPredicate predicateWithFormat:@"dateentered <= %@", cell.timeInterval];
-    //[request setPredicate:predicate];
-    
     NSError *error;
     NSArray *fetchedEntries = [self.managedObjectContext executeFetchRequest:request error:&error];
     
@@ -190,12 +164,14 @@ static NSString* const EntryDetailViewSegueIdentifier = @"Entry Detail View";
             [self.managedObjectContext deleteObject:entry];
             
         }
-        //[self.managedObjectContext deleteObject:entry];
     }
     
+    // Save the data
     [self.appDelegate saveData];
     
-    [self loadEntries];
+    // Load the entries
+    [self.appDelegate loadEntries];
+    self.entries = self.appDelegate.entries;
     
     // Delete the row
     NSMutableArray *indexPaths = [NSMutableArray array];
