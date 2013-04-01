@@ -15,7 +15,8 @@
 @implementation DateSelectViewController
 
 @synthesize entryData = _entryData;
-@synthesize date = _date;
+@synthesize startDate = _startDate;
+@synthesize endDate = _endDate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,9 +36,11 @@
 - (void)viewWillAppear:(BOOL)animated {
     
     if ([[self.entryData valueForKey:@"Field"] isEqual:@"Start"]) {
-        [self.datePicker setDate:self.date];
+        [self.datePicker setMaximumDate:self.endDate];
+        [self.datePicker setDate:self.startDate];
     } else if ([[self.entryData valueForKey:@"Field"] isEqual:@"End"]) {
-        [self.datePicker setDate:self.date];
+        [self.datePicker setMinimumDate:self.startDate];
+        [self.datePicker setDate:self.endDate];
     }
 }
 
@@ -53,12 +56,11 @@
 
 - (IBAction)dateChanged:(id)sender {
     
-    self.date = [self.datePicker date];
-    NSLog(@"D: %@", self.date);
+    NSDate *date = [self.datePicker date];
     
     NSMutableDictionary *newData = [[NSMutableDictionary alloc] init];
     [newData setObject:[self.entryData valueForKey:@"Field"] forKey:@"Field"];
-    [newData setObject:self.date forKey:@"Date"];
+    [newData setObject:date forKey:@"Date"];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"DateHasChanged" object:self userInfo:newData];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }

@@ -422,9 +422,6 @@
     for (Entries *info in fetchedObjects) {
         [self.entries addObject:info];
     }
-    
-    // Inform the app that the entries list has changed
-    //[[NSNotificationCenter defaultCenter] postNotificationName:@"EntriesListHasChanged" object:self];
 }
 
 
