@@ -208,7 +208,6 @@
                                                 <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="Z1f-u7-mLx">
                                                     <rect key="frame" x="203" y="8" width="79" height="27"/>
                                                     <connections>
-                                                        <action selector="changeTrackNutrition:" destination="Yb2-ko-f1d" eventType="valueChanged" id="5uc-du-oOU"/>
                                                         <action selector="changeTrackSymptom:" destination="Yb2-ko-f1d" eventType="valueChanged" id="dbo-ZJ-DVv"/>
                                                     </connections>
                                                 </switch>
@@ -233,28 +232,8 @@
                                                     <rect key="frame" x="203" y="8" width="79" height="27"/>
                                                     <connections>
                                                         <action selector="changeTrackLocation:" destination="Yb2-ko-f1d" eventType="valueChanged" id="kXk-Sp-Q5D"/>
-                                                        <action selector="changeTrackNutrition:" destination="Yb2-ko-f1d" eventType="valueChanged" id="E0d-Jg-66a"/>
-                                                        <action selector="changeTrackSymptom:" destination="Yb2-ko-f1d" eventType="valueChanged" id="3s0-in-y4v"/>
                                                     </connections>
                                                 </switch>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                            <tableViewSection headerTitle="Track Frequency" id="UAd-JD-7Kc">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="g3S-sl-Nin">
-                                        <rect key="frame" x="0.0" y="490" width="320" height="46"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="1" width="300" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="hzp-JA-XCl">
-                                                    <rect key="frame" x="18" y="11" width="264" height="23"/>
-                                                </slider>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -264,14 +243,14 @@
                             <tableViewSection headerTitle="User Details" id="H2j-lw-fjA">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="8HB-zG-ZPY">
-                                        <rect key="frame" x="0.0" y="582" width="320" height="45"/>
+                                        <rect key="frame" x="0.0" y="490" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="300" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Kvb-9S-fsx">
-                                                    <rect key="frame" x="20" y="11" width="47" height="21"/>
+                                                    <rect key="frame" x="20" y="11" width="80" height="21"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -291,7 +270,7 @@
                                         </view>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailDisclosureButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="U6i-Yt-jZP">
-                                        <rect key="frame" x="0.0" y="627" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="535" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="0.0" width="267" height="43"/>
@@ -317,7 +296,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailDisclosureButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="3PX-Oa-ex8">
-                                        <rect key="frame" x="0.0" y="671" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="579" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="0.0" width="267" height="43"/>
@@ -343,7 +322,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailDisclosureButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="82g-Lr-QTJ">
-                                        <rect key="frame" x="0.0" y="715" width="320" height="45"/>
+                                        <rect key="frame" x="0.0" y="623" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="0.0" width="267" height="43"/>
@@ -373,7 +352,7 @@
                             <tableViewSection headerTitle="Default Units" id="Gf7-ga-d62">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailDisclosureButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Sze-fj-yR1">
-                                        <rect key="frame" x="0.0" y="806" width="320" height="46"/>
+                                        <rect key="frame" x="0.0" y="714" width="320" height="46"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="267" height="43"/>
@@ -403,7 +382,7 @@
                             <tableViewSection headerTitle="About" id="8ju-QZ-7Li">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailDisclosureButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="QsV-wT-dfe">
-                                        <rect key="frame" x="0.0" y="898" width="320" height="46"/>
+                                        <rect key="frame" x="0.0" y="806" width="320" height="46"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="267" height="43"/>
@@ -438,7 +417,6 @@
                         <outlet property="trackBloodPressure" destination="1IN-aP-OM4" id="69t-gP-C97"/>
                         <outlet property="trackEnergyLevel" destination="ycg-Yh-jEA" id="KGr-mR-u3k"/>
                         <outlet property="trackFitness" destination="rsB-Dr-SO2" id="OPd-dH-YPV"/>
-                        <outlet property="trackFrequency" destination="hzp-JA-XCl" id="yaT-KQ-YJx"/>
                         <outlet property="trackLocation" destination="I0h-fE-I6Z" id="F95-qm-Iwu"/>
                         <outlet property="trackNutrition" destination="Q9o-sT-liX" id="UdJ-Fh-gFu"/>
                         <outlet property="trackQualityofSleep" destination="FPn-w2-IJj" id="88a-BA-khp"/>
@@ -470,6 +448,9 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
                             <tableViewSection headerTitle="About Application" footerTitle="The TraCare application has been created by Dillon Young for the CPD-3293 (Mobile Development I) term project." id="DD9-oK-4oF">
+                                <cells/>
+                            </tableViewSection>
+                            <tableViewSection footerTitle="Build Date: April 8th, 2013" id="ui1-RW-vnN">
                                 <cells/>
                             </tableViewSection>
                         </sections>
@@ -561,7 +542,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Imperial" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aKY-HA-dDq">
-                                                    <rect key="frame" x="20" y="11" width="61" height="21"/>
+                                                    <rect key="frame" x="20" y="11" width="124" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -578,7 +559,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Metric" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1uV-zf-1Mk">
-                                                    <rect key="frame" x="20" y="11" width="47" height="21"/>
+                                                    <rect key="frame" x="20" y="11" width="124" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -611,6 +592,7 @@
                         <subviews>
                             <pickerView contentMode="scaleToFill" id="9Xj-sd-Rro">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <outlet property="dataSource" destination="O1h-u4-rnQ" id="rmf-aB-e0Q"/>
                                     <outlet property="delegate" destination="O1h-u4-rnQ" id="grs-WZ-JjU"/>
@@ -638,6 +620,7 @@
                         <subviews>
                             <pickerView contentMode="scaleToFill" id="e2T-jr-ngB">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <outlet property="dataSource" destination="x8f-VE-9GY" id="KI5-2G-Oi6"/>
                                     <outlet property="delegate" destination="x8f-VE-9GY" id="wdD-ej-yUB"/>
@@ -1153,6 +1136,7 @@
                         <subviews>
                             <pickerView contentMode="scaleToFill" id="dT3-Ik-uTy">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <outlet property="dataSource" destination="wVf-lS-VkM" id="YpH-hF-v4y"/>
                                     <outlet property="delegate" destination="wVf-lS-VkM" id="ObM-TP-fij"/>

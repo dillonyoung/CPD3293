@@ -835,7 +835,7 @@ static NSString* const NewEntrySymptomsTypeViewSegueIdentifier = @"New Entry Sym
     newEntry.location = locationIndex;
     
     // Get the date
-    newEntry.dateentered =  [[NSDate date] timeIntervalSince1970];
+    newEntry.dateentered = [[NSDate date] timeIntervalSince1970];
     
     // Attempt to save the entry
     if( ! [[self managedObjectContext] save:&error] ){
@@ -878,6 +878,7 @@ static NSString* const NewEntrySymptomsTypeViewSegueIdentifier = @"New Entry Sym
     }
     
     [self.appDelegate loadLocations];
+    self.locations = self.appDelegate.locations;
 
     return [self.locations count] - 1;
 }

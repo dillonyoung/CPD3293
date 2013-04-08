@@ -166,7 +166,7 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    
+
     // Check to see if the location was tracked when the entry was made
     if (self.entry.location >= 0) {
     
