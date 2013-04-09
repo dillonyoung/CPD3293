@@ -23,13 +23,26 @@
 		514B13D917091EE400831F9C /* SummaryReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 514B13D817091EE400831F9C /* SummaryReportViewController.m */; };
 		514D9B3216FE6C58006BFD60 /* WeightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 514D9B3116FE6C58006BFD60 /* WeightViewController.m */; };
 		515DA5C716F7F6BE0039C690 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 515DA5C616F7F6BE0039C690 /* MapKit.framework */; };
+		516A55111713607700597DA5 /* TCAppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 516A550B1713607700597DA5 /* TCAppIcon.png */; };
+		516A55121713607700597DA5 /* TCAppIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 516A550C1713607700597DA5 /* TCAppIcon@2x.png */; };
+		516A55131713607700597DA5 /* TCiPadAppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 516A550D1713607700597DA5 /* TCiPadAppIcon.png */; };
+		516A55141713607700597DA5 /* TCiPadSearch.png in Resources */ = {isa = PBXBuildFile; fileRef = 516A550E1713607700597DA5 /* TCiPadSearch.png */; };
+		516A55151713607700597DA5 /* TCSearchIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 516A550F1713607700597DA5 /* TCSearchIcon.png */; };
+		516A55161713607700597DA5 /* TCSearchIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 516A55101713607700597DA5 /* TCSearchIcon@2x.png */; };
+		516A55181713608300597DA5 /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 516A55171713608300597DA5 /* iTunesArtwork.png */; };
+		516A551C171363A600597DA5 /* TCLaunch.png in Resources */ = {isa = PBXBuildFile; fileRef = 516A5519171363A600597DA5 /* TCLaunch.png */; };
+		516A551D171363A600597DA5 /* TCLaunch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 516A551A171363A600597DA5 /* TCLaunch@2x.png */; };
+		516A551E171363A600597DA5 /* TCLaunchRetina.png in Resources */ = {isa = PBXBuildFile; fileRef = 516A551B171363A600597DA5 /* TCLaunchRetina.png */; };
+		516A5520171363B600597DA5 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 516A551F171363B600597DA5 /* Default.png */; };
+		516A5522171363BE00597DA5 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 516A5521171363BE00597DA5 /* Default@2x.png */; };
+		516A5524171363C700597DA5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 516A5523171363C700597DA5 /* Default-568h@2x.png */; };
+		516A55261713771A00597DA5 /* TCLaunch-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 516A55251713771A00597DA5 /* TCLaunch-568h@2x.png */; };
 		516A66FA1705E38A00E309BC /* TextEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 516A66F91705E38A00E309BC /* TextEntryViewController.m */; };
 		516A670017060CC300E309BC /* SymptomTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 516A66FF17060CC300E309BC /* SymptomTypeViewController.m */; };
 		51715B3516FCE16400667936 /* TraCare.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 51715B3316FCE16400667936 /* TraCare.xcdatamodeld */; };
 		51715B3A16FCE2E100667936 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51715B3916FCE2E100667936 /* CoreData.framework */; };
 		51715B4116FCE78000667936 /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51715B4016FCE78000667936 /* TabBarViewController.m */; };
 		51715B4A16FD530300667936 /* UserDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 51715B4916FD530300667936 /* UserDetails.m */; };
-		51715B4D16FD56E400667936 /* Gender.m in Sources */ = {isa = PBXBuildFile; fileRef = 51715B4C16FD56E400667936 /* Gender.m */; };
 		5171A8881708A411008882C9 /* DateSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5171A8871708A410008882C9 /* DateSelectViewController.m */; };
 		5177918917072EDD00B71BEB /* EntriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5177918817072EDD00B71BEB /* EntriesViewController.m */; };
 		5177918C1707340600B71BEB /* EntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5177918B1707340600B71BEB /* EntryCell.m */; };
@@ -97,6 +110,20 @@
 		514D9B3016FE6C58006BFD60 /* WeightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeightViewController.h; sourceTree = "<group>"; };
 		514D9B3116FE6C58006BFD60 /* WeightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeightViewController.m; sourceTree = "<group>"; };
 		515DA5C616F7F6BE0039C690 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		516A550B1713607700597DA5 /* TCAppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TCAppIcon.png; sourceTree = "<group>"; };
+		516A550C1713607700597DA5 /* TCAppIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TCAppIcon@2x.png"; sourceTree = "<group>"; };
+		516A550D1713607700597DA5 /* TCiPadAppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TCiPadAppIcon.png; sourceTree = "<group>"; };
+		516A550E1713607700597DA5 /* TCiPadSearch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TCiPadSearch.png; sourceTree = "<group>"; };
+		516A550F1713607700597DA5 /* TCSearchIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TCSearchIcon.png; sourceTree = "<group>"; };
+		516A55101713607700597DA5 /* TCSearchIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TCSearchIcon@2x.png"; sourceTree = "<group>"; };
+		516A55171713608300597DA5 /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
+		516A5519171363A600597DA5 /* TCLaunch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TCLaunch.png; sourceTree = "<group>"; };
+		516A551A171363A600597DA5 /* TCLaunch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TCLaunch@2x.png"; sourceTree = "<group>"; };
+		516A551B171363A600597DA5 /* TCLaunchRetina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TCLaunchRetina.png; sourceTree = "<group>"; };
+		516A551F171363B600597DA5 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		516A5521171363BE00597DA5 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		516A5523171363C700597DA5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		516A55251713771A00597DA5 /* TCLaunch-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TCLaunch-568h@2x.png"; sourceTree = "<group>"; };
 		516A66F81705E38A00E309BC /* TextEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextEntryViewController.h; sourceTree = "<group>"; };
 		516A66F91705E38A00E309BC /* TextEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextEntryViewController.m; sourceTree = "<group>"; };
 		516A66FE17060CC300E309BC /* SymptomTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SymptomTypeViewController.h; sourceTree = "<group>"; };
@@ -108,8 +135,6 @@
 		51715B4016FCE78000667936 /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
 		51715B4816FD530300667936 /* UserDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDetails.h; sourceTree = "<group>"; };
 		51715B4916FD530300667936 /* UserDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDetails.m; sourceTree = "<group>"; };
-		51715B4B16FD56E400667936 /* Gender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gender.h; sourceTree = "<group>"; };
-		51715B4C16FD56E400667936 /* Gender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gender.m; sourceTree = "<group>"; };
 		5171A8861708A410008882C9 /* DateSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateSelectViewController.h; sourceTree = "<group>"; };
 		5171A8871708A410008882C9 /* DateSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateSelectViewController.m; sourceTree = "<group>"; };
 		5177918717072EDD00B71BEB /* EntriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntriesViewController.h; sourceTree = "<group>"; };
@@ -189,6 +214,10 @@
 		51B2C64816E57B8300B385F6 = {
 			isa = PBXGroup;
 			children = (
+				516A55251713771A00597DA5 /* TCLaunch-568h@2x.png */,
+				516A5523171363C700597DA5 /* Default-568h@2x.png */,
+				516A5521171363BE00597DA5 /* Default@2x.png */,
+				516A551F171363B600597DA5 /* Default.png */,
 				51E384D51706687C00C64BF8 /* CoreLocation.framework */,
 				51715B3916FCE2E100667936 /* CoreData.framework */,
 				51715B3316FCE16400667936 /* TraCare.xcdatamodeld */,
@@ -276,6 +305,16 @@
 		51B2C69B16E57C4C00B385F6 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				516A5519171363A600597DA5 /* TCLaunch.png */,
+				516A551A171363A600597DA5 /* TCLaunch@2x.png */,
+				516A551B171363A600597DA5 /* TCLaunchRetina.png */,
+				516A55171713608300597DA5 /* iTunesArtwork.png */,
+				516A550B1713607700597DA5 /* TCAppIcon.png */,
+				516A550C1713607700597DA5 /* TCAppIcon@2x.png */,
+				516A550D1713607700597DA5 /* TCiPadAppIcon.png */,
+				516A550E1713607700597DA5 /* TCiPadSearch.png */,
+				516A550F1713607700597DA5 /* TCSearchIcon.png */,
+				516A55101713607700597DA5 /* TCSearchIcon@2x.png */,
 				514B13C717091E9A00831F9C /* entries.png */,
 				514B13C817091E9A00831F9C /* entries@2x.png */,
 				514B13C917091E9A00831F9C /* map.png */,
@@ -301,8 +340,6 @@
 				51895C5916FFDD7C00EFC453 /* Preferences.m */,
 				51715B4816FD530300667936 /* UserDetails.h */,
 				51715B4916FD530300667936 /* UserDetails.m */,
-				51715B4B16FD56E400667936 /* Gender.h */,
-				51715B4C16FD56E400667936 /* Gender.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -444,6 +481,20 @@
 				514B13D417091E9A00831F9C /* preferences@2x.png in Resources */,
 				514B13D517091E9A00831F9C /* summary.png in Resources */,
 				514B13D617091E9A00831F9C /* summary@2x.png in Resources */,
+				516A55111713607700597DA5 /* TCAppIcon.png in Resources */,
+				516A55121713607700597DA5 /* TCAppIcon@2x.png in Resources */,
+				516A55131713607700597DA5 /* TCiPadAppIcon.png in Resources */,
+				516A55141713607700597DA5 /* TCiPadSearch.png in Resources */,
+				516A55151713607700597DA5 /* TCSearchIcon.png in Resources */,
+				516A55161713607700597DA5 /* TCSearchIcon@2x.png in Resources */,
+				516A55181713608300597DA5 /* iTunesArtwork.png in Resources */,
+				516A551C171363A600597DA5 /* TCLaunch.png in Resources */,
+				516A551D171363A600597DA5 /* TCLaunch@2x.png in Resources */,
+				516A551E171363A600597DA5 /* TCLaunchRetina.png in Resources */,
+				516A5520171363B600597DA5 /* Default.png in Resources */,
+				516A5522171363BE00597DA5 /* Default@2x.png in Resources */,
+				516A5524171363C700597DA5 /* Default-568h@2x.png in Resources */,
+				516A55261713771A00597DA5 /* TCLaunch-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,7 +537,6 @@
 				51715B3516FCE16400667936 /* TraCare.xcdatamodeld in Sources */,
 				51715B4116FCE78000667936 /* TabBarViewController.m in Sources */,
 				51715B4A16FD530300667936 /* UserDetails.m in Sources */,
-				51715B4D16FD56E400667936 /* Gender.m in Sources */,
 				514D9B3216FE6C58006BFD60 /* WeightViewController.m in Sources */,
 				51B51F6016FE8F6E008EE4A5 /* DefaultUnitsViewController.m in Sources */,
 				5112303D16FF8E4100905F61 /* HeightViewController.m in Sources */,

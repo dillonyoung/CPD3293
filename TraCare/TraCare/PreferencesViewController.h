@@ -28,9 +28,6 @@
 @property (strong, nonatomic) IBOutlet UISwitch *trackSymptom;
 @property (strong, nonatomic) IBOutlet UISwitch *trackLocation;
 
-// Create the outlets for the track frequency
-@property (strong, nonatomic) IBOutlet UISlider *trackFrequency;
-
 // Create the outlets for the user details
 @property (strong, nonatomic) IBOutlet UITextField *userName;
 @property (strong, nonatomic) IBOutlet UILabel *userGender;
@@ -42,9 +39,6 @@
 
 // Create the actions for the user details
 - (IBAction)changeUserName:(id)sender;
-
-- (IBAction)changeUserWeight:(id)sender;
-- (IBAction)changeUserHeight:(id)sender;
 
 // Create the actions for tracking details
 - (IBAction)changeTrackWeight:(id)sender;

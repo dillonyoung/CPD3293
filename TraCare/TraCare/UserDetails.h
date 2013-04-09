@@ -12,6 +12,7 @@
 
 @interface UserDetails : NSManagedObject
 
+// Define the model properties
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic) int16_t gender;
 @property (nonatomic) float weight;

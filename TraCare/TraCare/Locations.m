@@ -11,6 +11,7 @@
 
 @implementation Locations
 
+// Synthesize the properties
 @dynamic index;
 @dynamic latitude;
 @dynamic longitude;

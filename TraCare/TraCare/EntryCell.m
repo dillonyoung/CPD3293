@@ -10,6 +10,7 @@
 
 @implementation EntryCell
 
+// Synthesize the properties
 @synthesize timeInterval = _timeInterval;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -21,19 +22,26 @@
     return self;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
+- (void)setSelected:(BOOL)selected
+           animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
 }
 
-- (void)configureWithEntry:(Entries *)entry {
+#pragma mark - Cell Configuration Methods
 
+- (void)configureWithEntry:(Entries *)entry
+{
+
+    // Convert the entry date into a normal date and format it
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:entry.dateentered];
     self.dateLabel.text = [NSDateFormatter localizedStringFromDate:date
                                                          dateStyle:NSDateFormatterLongStyle
                                                          timeStyle:NSDateFormatterShortStyle];
+    
+    // Set the time interval to the date of the entry
     self.timeInterval = entry.dateentered;
 }
 

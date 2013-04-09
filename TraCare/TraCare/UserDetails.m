@@ -11,6 +11,7 @@
 
 @implementation UserDetails
 
+// Synthesize the properties
 @dynamic name;
 @dynamic gender;
 @dynamic weight;

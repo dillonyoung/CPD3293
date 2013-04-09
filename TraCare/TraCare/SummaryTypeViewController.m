@@ -14,6 +14,7 @@
 
 @implementation SummaryTypeViewController
 
+// Synthesize the properties
 @synthesize selectedIndex = _selectedIndex;
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -36,7 +37,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewDidAppear:(BOOL)animated {
+- (void)viewDidAppear:(BOOL)animated
+{
     
     // Add the checkmark to the selected table index
     NSIndexPath *path = [NSIndexPath indexPathForRow:self.selectedIndex inSection:0];
@@ -52,7 +54,8 @@
 
 #pragma mark - Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView
+didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
     // Remove the checkmark from the previous table index
@@ -69,6 +72,7 @@
     // Update the selected default unit with the current index
     self.selectedIndex = indexPath.row;
     
+    // Create and send a notification that the summary type has changed
     NSMutableDictionary *newData = [[NSMutableDictionary alloc] init];
     [newData setObject:@"Summary" forKey:@"Field"];
     [newData setObject:[NSNumber numberWithInteger:self.selectedIndex] forKey:@"Value"];

@@ -12,6 +12,7 @@
 #import "SummaryTypeViewController.h"
 #import "SummaryReportViewController.h"
 
+// Declare the segue name constants
 static NSString* const StartDateViewSegueIdentifier = @"Start Date Select View";
 static NSString* const EndDateViewSegueIdentifier = @"End Date Select View";
 static NSString* const SummaryTypeViewSegueIdentifier = @"Summary Type Select View";
@@ -23,6 +24,7 @@ static NSString* const SummaryReportViewSegueIdentifier = @"Summary Report Selec
 
 @implementation SummaryViewController
 
+// Synthesize the properties
 @synthesize startDate = _startDate;
 @synthesize endDate = _endDate;
 @synthesize selectedType = _selectedType;
@@ -128,7 +130,10 @@ static NSString* const SummaryReportViewSegueIdentifier = @"Summary Report Selec
     }
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    
+    // Check to see if the destination view is the start date select view
     if ([segue.identifier isEqualToString:StartDateViewSegueIdentifier]) {
         DateSelectViewController* controller = segue.destinationViewController;
         controller.title = @"Start Date";
@@ -137,6 +142,8 @@ static NSString* const SummaryReportViewSegueIdentifier = @"Summary Report Selec
         controller.entryData = entryData;
         controller.startDate = self.startDate;
         controller.endDate = self.endDate;
+        
+    // Check to see if the destination view is the end date select view
     } else if ([segue.identifier isEqualToString:EndDateViewSegueIdentifier]) {
         DateSelectViewController* controller = segue.destinationViewController;
         controller.title = @"End Date";
@@ -145,9 +152,13 @@ static NSString* const SummaryReportViewSegueIdentifier = @"Summary Report Selec
         controller.entryData = entryData;
         controller.startDate = self.startDate;
         controller.endDate = self.endDate;
+        
+    // Check to see if the destination view is the summary type select view
     } else if ([segue.identifier isEqualToString:SummaryTypeViewSegueIdentifier]) {
         SummaryTypeViewController* controller = segue.destinationViewController;
         controller.selectedIndex = self.selectedType;
+        
+    // Check to see if the destination view is the summary report view
     } else if ([segue.identifier isEqualToString:SummaryReportViewSegueIdentifier]) {
         SummaryReportViewController* controller = segue.destinationViewController;
         

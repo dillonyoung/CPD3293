@@ -13,6 +13,7 @@
 #import "DefaultUnitsViewController.h"
 #import "HeightViewController.h"
 
+// Declare the segue name constants
 static NSString* const GenderViewSegueIdentifier = @"Gender Select View";
 static NSString* const WeightViewSegueIdentifier = @"Weight Select View";
 static NSString* const DefaultUnitsViewSegueIdentifier = @"Default Units Select View";
@@ -24,6 +25,7 @@ static NSString* const HeightViewSegueIdentifier = @"Height Select View";
 
 @implementation PreferencesViewController
 
+// Synthesize the properties
 @synthesize appDelegate = _appDelegate;
 @synthesize preferences = _preferences;
 @synthesize userdetails = _userdetails;
@@ -50,9 +52,16 @@ static NSString* const HeightViewSegueIdentifier = @"Height Select View";
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    //TCAppDelegate *appDelegate = (TCAppDelegate *)[[UIApplication sharedApplication] delegate];
 
+    // Update the preference display
     [self UpdatePreferenceDisplay];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+
+    // Save the data
+    [self.appDelegate saveData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -61,72 +70,101 @@ static NSString* const HeightViewSegueIdentifier = @"Height Select View";
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)changeUserName:(id)sender {
+- (IBAction)changeUserName:(id)sender
+{
+    
+    // Stop the name input field from being an input responder
     [self.userName resignFirstResponder];
     
     // Check to see if the username entered is blank
     if ([self.userName.text isEqual: @""]) {
         self.userName.text = self.userdetails.name;
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Blank Name" message:@"You must enter a name" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        // Inform the user the name can't be blank
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Blank Name"
+                                                        message:@"You must enter a name"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
         [alert show];
     } else {
+        
+        // Update the user name
         self.userdetails.name = self.userName.text;
     }
 }
 
-- (IBAction)changeUserWeight:(id)sender {
-    [self.userWeight resignFirstResponder];
-}
-
-- (IBAction)changeUserHeight:(id)sender {
-    [self.userHeight resignFirstResponder];
-}
-
-- (IBAction)changeTrackWeight:(id)sender {
+- (IBAction)changeTrackWeight:(id)sender
+{
+    
+    // Update the weight tracking preference
     self.preferences.weight = self.trackWeight.on;
 }
 
-- (IBAction)changeTrackSleep:(id)sender {
+- (IBAction)changeTrackSleep:(id)sender
+{
+    
+    // Update the sleep tracking preference
     self.preferences.sleep = self.trackSleep.on;
 }
 
-- (IBAction)changeTrackBloodPressure:(id)sender {
+- (IBAction)changeTrackBloodPressure:(id)sender
+{
+    
+    // Update the blood pressure tracking preference
     self.preferences.bloodpressure = self.trackBloodPressure.on;
 }
 
-- (IBAction)changeTrackEnergyLevel:(id)sender {
+- (IBAction)changeTrackEnergyLevel:(id)sender
+{
+    
+    // Update the energy level tracking preference
     self.preferences.energy = self.trackEnergyLevel.on;
 }
 
-- (IBAction)changeTrackQualityofSleep:(id)sender {
+- (IBAction)changeTrackQualityofSleep:(id)sender
+{
+    
+    // Update the quality of sleep tracking preference
     self.preferences.qualityofsleep = self.trackQualityofSleep.on;
 }
 
-- (IBAction)changeTrackFitness:(id)sender {
+- (IBAction)changeTrackFitness:(id)sender
+{
+    
+    // Update the fitness activity tracking preference
     self.preferences.fitness = self.trackFitness.on;
 }
 
-- (IBAction)changeTrackNutrition:(id)sender {
+- (IBAction)changeTrackNutrition:(id)sender
+{
+    
+    // Update the nutrition tracking preference
     self.preferences.nutrition = self.trackNutrition.on;
 }
 
 - (IBAction)changeTrackSymptom:(id)sender {
+    
+    // Update the symptom tracking preference
     self.preferences.symptom = self.trackSymptom.on;
 }
 
-- (IBAction)changeTrackLocation:(id)sender {
+- (IBAction)changeTrackLocation:(id)sender
+{
+    
+    // Update the location tracking preference
     self.preferences.location = self.trackLocation.on;
 }
 
-/**
- * Hides the keyboard
- */
-- (IBAction)hideKeyboard:(id)sender {
+- (IBAction)hideKeyboard:(id)sender
+{
+    
+    // Hide the keyboard
     [self.view endEditing:YES];
 }
 
-- (void)UpdatePreferenceDisplay {
+- (void)UpdatePreferenceDisplay
+{
     
     // Update the tracking toggle states
     self.trackWeight.on = self.preferences.weight;
@@ -198,18 +236,29 @@ static NSString* const HeightViewSegueIdentifier = @"Height Select View";
 
 }
 
+#pragma mark - Segue Methods
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+- (void)prepareForSegue:(UIStoryboardSegue *)segue
+                 sender:(id)sender
+{
+    
+    // Check to see if the destination view is the gender select view
     if ([segue.identifier isEqualToString:GenderViewSegueIdentifier]) {
         GenderViewController* controller = segue.destinationViewController;
         controller.userdetails = self.userdetails;
+        
+    // Check to see if the destination view is the weight select view
     } else if ([segue.identifier isEqual:WeightViewSegueIdentifier]) {
         WeightViewController* controller = segue.destinationViewController;
         controller.preferences = self.preferences;
         controller.userdetails = self.userdetails;
+        
+    // Check to see if the destination view is the default unit select view
     } else if ([segue.identifier isEqual:DefaultUnitsViewSegueIdentifier]) {
         DefaultUnitsViewController* controller = segue.destinationViewController;
         controller.preferences = self.preferences;
+        
+    // Check to see if the destination view is the dheight select view
     } else if ([segue.identifier isEqual:HeightViewSegueIdentifier]) {
         HeightViewController* controller = segue.destinationViewController;
         controller.preferences = self.preferences;

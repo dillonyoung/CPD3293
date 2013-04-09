@@ -11,6 +11,7 @@
 
 @implementation SymptomTypes
 
+// Synthesize the properties
 @dynamic id;
 @dynamic symptomdesc;
 

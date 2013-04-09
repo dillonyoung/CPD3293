@@ -14,6 +14,7 @@
 
 @implementation SummaryReportViewController
 
+// Synthesize the properties
 @synthesize appDelegate = _appDelegate;
 @synthesize preferences = _preferences;
 @synthesize symptomtypes = _symptomtypes;
@@ -39,7 +40,8 @@
     [super viewDidLoad];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animated
+{
     
     // Get the app delegate and user details and preferences
     self.appDelegate = (TCAppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -49,11 +51,11 @@
     
     // Set the start and end dates
     self.currentStartDate.text = [NSDateFormatter localizedStringFromDate:self.startDate
-                                                                      dateStyle:NSDateFormatterLongStyle
-                                                                      timeStyle:NSDateFormatterShortStyle];
+                                                                dateStyle:NSDateFormatterLongStyle
+                                                                timeStyle:NSDateFormatterShortStyle];
     self.currentEndDate.text = [NSDateFormatter localizedStringFromDate:self.endDate
-                                                                    dateStyle:NSDateFormatterLongStyle
-                                                                    timeStyle:NSDateFormatterShortStyle];
+                                                              dateStyle:NSDateFormatterLongStyle
+                                                              timeStyle:NSDateFormatterShortStyle];
     // Check to see which summary to display
     if (self.summaryType == 0) {
     
@@ -96,6 +98,13 @@
         
         // Calculate the average weight
         averageWeight = averageWeight / averageCount;
+
+        // Check to see if there was at least one entry
+        if (averageCount == 0) {
+            lowestWeight = 0.0;
+            highestWeight = 0.0;
+            averageWeight = 0.0;
+        }
     
         // Update the date of the highest weight
         self.currentHighestDate.text = [NSDateFormatter localizedStringFromDate:highestDate
@@ -218,6 +227,13 @@
         // Calculate the average hours of sleep
         averageHours = averageHours / averageCount;
         
+        // Check to see if there was at least one entry
+        if (averageCount == 0) {
+            lowestHours = 0.0;
+            highestHours = 0.0;
+            averageHours = 0.0;
+        }
+        
         // Update the date of the highest hours of sleep
         self.currentHighestDate.text = [NSDateFormatter localizedStringFromDate:highestDate
                                                                       dateStyle:NSDateFormatterLongStyle
@@ -254,8 +270,11 @@
 
 #pragma mark - Table Methods
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+- (NSString *)tableView:(UITableView *)tableView
+titleForHeaderInSection:(NSInteger)section
+{
     
+    // Check to see if the summary type is the weight summary
     if (self.summaryType == 0) {
         switch (section) {
             case 0:
@@ -276,6 +295,8 @@
             default:
                 break;
         }
+        
+    // Check to see if the summary type is the hours of sleep summary
     } else if (self.summaryType == 1) {
         switch (section) {
             case 0:

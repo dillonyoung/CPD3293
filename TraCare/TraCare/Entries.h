@@ -12,6 +12,7 @@
 
 @interface Entries : NSManagedObject
 
+// Define the model properties
 @property (nonatomic) int16_t bloodpressurediastolic;
 @property (nonatomic) int16_t bloodpressuresystolic;
 @property (nonatomic) NSTimeInterval dateentered;

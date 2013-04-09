@@ -13,6 +13,7 @@
 #import "EntryCell.h"
 #import "EntryDetailViewController.h"
 
+// Declare the segue name constants
 static NSString* const EntryDetailViewSegueIdentifier = @"Entry Detail View";
 
 @interface EntriesViewController ()
@@ -21,6 +22,7 @@ static NSString* const EntryDetailViewSegueIdentifier = @"Entry Detail View";
 
 @implementation EntriesViewController
 
+// Synthesize the properties
 @synthesize appDelegate = _appDelegate;
 @synthesize preferences = _preferences;
 @synthesize userdetails = _userdetails;
@@ -31,6 +33,8 @@ static NSString* const EntryDetailViewSegueIdentifier = @"Entry Detail View";
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
+
+@synthesize deleteIndex = _deleteIndex;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -73,8 +77,18 @@ static NSString* const EntryDetailViewSegueIdentifier = @"Entry Detail View";
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-- (void)viewWillAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animated
+{
+    
+    // Reload the table data
     [self reloadTableData];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    
+    // Save the data
+    [self.appDelegate saveData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -89,18 +103,23 @@ static NSString* const EntryDetailViewSegueIdentifier = @"Entry Detail View";
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+    
     // We only have a single section
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)tableView:(UITableView *)tableView
+ numberOfRowsInSection:(NSInteger)section
 {
+    
     // Return the number of entries
     return [self.entries count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     static NSString *CellIdentifier = @"Entry Cell";
 
     EntryCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
@@ -112,13 +131,15 @@ static NSString* const EntryDetailViewSegueIdentifier = @"Entry Detail View";
     return cell;
 }
 
-- (void)entriesListHasChanged:(NSNotification*)notification {
+- (void)entriesListHasChanged:(NSNotification*)notification
+{
     
     // Reload the table data
     [self reloadTableData];
 }
 
-- (void)reloadTableData {
+- (void)reloadTableData
+{
     
     // Load the entries
     [self.appDelegate loadEntries];
@@ -130,12 +151,13 @@ static NSString* const EntryDetailViewSegueIdentifier = @"Entry Detail View";
 
 
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    
+    // Check to see if the destination view is the entry detail view
     if ([segue.identifier isEqualToString:EntryDetailViewSegueIdentifier]) {
         EntryDetailViewController* controller = segue.destinationViewController;
         NSIndexPath *path = [self.tableView indexPathForSelectedRow];
-        NSLog(@"Yes: %ld", (long)path.row);
-        NSLog(@"C: %lu", (unsigned long)[self.entries count]);
         controller.currentEntry = ([self.entries count] - 1) - path.row;
         [self.tableView deselectRowAtIndexPath:path animated:NO];
     }
@@ -144,22 +166,30 @@ static NSString* const EntryDetailViewSegueIdentifier = @"Entry Detail View";
 
 #pragma mark - Entries Support
 
-/**
- * Remove the selected entry from the data file
- */
+
 - (void)removeEntry:(NSIndexPath *)indexPath {
+    
+    // Create a reference to the selected cell
     EntryCell *cell = (EntryCell *)[self.tableView cellForRowAtIndexPath:indexPath];
 
-    NSEntityDescription *entryEntity = [NSEntityDescription entityForName:@"Entries" inManagedObjectContext:[self managedObjectContext]];
+    // Prepare a delete request for the entries entity
+    NSEntityDescription *entryEntity = [NSEntityDescription entityForName:@"Entries"
+                                                   inManagedObjectContext:[self managedObjectContext]];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     
     [request setEntity:entryEntity];
     
     NSError *error;
-    NSArray *fetchedEntries = [self.managedObjectContext executeFetchRequest:request error:&error];
     
+    // Perform the request
+    NSArray *fetchedEntries = [self.managedObjectContext executeFetchRequest:request
+                                                                       error:&error];
+    
+    // Loop through the entries and delete the selected ones
     for (NSManagedObject *entry in fetchedEntries) {
         Entries *checkEntry = (Entries *)entry;
+        
+        // Check to see if the entry matches the selected entry
         if (checkEntry.dateentered == cell.timeInterval) {
             [self.managedObjectContext deleteObject:entry];
             
@@ -183,15 +213,23 @@ static NSString* const EntryDetailViewSegueIdentifier = @"Entry Detail View";
 
 #pragma mark - Refresh View Methods
 
-- (void)refreshView:(UIRefreshControl *)refresh {
+- (void)refreshView:(UIRefreshControl *)refresh
+{
+    
+    // Set the title for the refresh
     refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Refreshing data..."];
     
+    // Reload the data for the table
     [self reloadTableData];
     
+    // Get and format the current date
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"MMM d, h:mm a"];
+    
+    // Build the updated title string
     NSString *lastUpdated = [NSString stringWithFormat:@"Last updated on %@", [formatter stringFromDate:[NSDate date]]];
     
+    // Update the refresh title
     refresh.attributedTitle = [[NSAttributedString alloc] initWithString:lastUpdated];
     [refresh endRefreshing];
 }
@@ -199,24 +237,40 @@ static NSString* const EntryDetailViewSegueIdentifier = @"Entry Detail View";
 
 #pragma mark - Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView
+commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    
+    // Check to see if the editing style is to delete
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        // Create alert view to prompt the user to confirm deleting the entry
+        NSString* title = @"Confirm Delete";
+        NSString* message = @"Are you sure you want to delete the selected entry?";
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:title
+                                                        message:message
+                                                       delegate:self
+                                              cancelButtonTitle:@"Cancel"
+                                              otherButtonTitles:@"Delete", nil];
+        
+        [alert show];
+        
+        // Store the index path
+        self.deleteIndex = indexPath;
+    }
 }
 
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [self removeEntry:indexPath];
-        //[self.weightHistory removeWeightAtIndex:indexPath.row];
+
+#pragma mark - Alert View Delegate Methods
+
+- (void) alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    
+    // Delete the selected entry
+    if (buttonIndex == 1) {
+        
+        // Remove the selected entry
+        [self removeEntry:self.deleteIndex];
     }
 }
 

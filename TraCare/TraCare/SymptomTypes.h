@@ -12,6 +12,7 @@
 
 @interface SymptomTypes : NSManagedObject
 
+// Define the model properties
 @property (nonatomic) int16_t id;
 @property (nonatomic, retain) NSString * symptomdesc;
 

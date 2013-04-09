@@ -14,6 +14,7 @@
 
 @implementation GenderViewController
 
+// Synthesize the properties
 @synthesize userdetails = _userdetails;
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -30,11 +31,8 @@
     [super viewDidLoad];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-
-}
-
-- (void)viewDidAppear:(BOOL)animated {
+- (void)viewDidAppear:(BOOL)animated
+{
 
     // Add the checkmark to the selected table index
     NSIndexPath *path = [NSIndexPath indexPathForRow:(self.userdetails.gender - 1) inSection:0];
@@ -55,7 +53,8 @@
 
 #pragma mark - Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView
+didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
     // Remove the checkmark from the previous table index

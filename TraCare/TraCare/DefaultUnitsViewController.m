@@ -14,6 +14,7 @@
 
 @implementation DefaultUnitsViewController
 
+// Synthesize the properties
 @synthesize preferences = _preferences;
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -30,7 +31,8 @@
     [super viewDidLoad];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
+- (void)viewDidAppear:(BOOL)animated
+{
     
     // Add the checkmark to the selected table index
     NSIndexPath *path = [NSIndexPath indexPathForRow:(self.preferences.defaultunits - 1) inSection:0];
@@ -51,7 +53,8 @@
 
 #pragma mark - Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView
+didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
     // Remove the checkmark from the previous table index

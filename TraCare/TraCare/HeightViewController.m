@@ -14,6 +14,7 @@
 
 @implementation HeightViewController
 
+// Synthesize the properties
 @synthesize feet = _feet;
 @synthesize inches = _inches;
 @synthesize meters = _meters;
@@ -68,7 +69,8 @@
 	// Do any additional setup after loading the view.
 }
 
-- (void)viewWillAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animated
+{
     
     // Check to see which default units mode is selected and update the display
     if (self.preferences.defaultunits == 1) {
@@ -98,12 +100,16 @@
 
 #pragma mark PickerView DataSource
 
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
     
+    // Return the number of sections in the picker view
     return 2;
 }
 
-- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+- (NSInteger)pickerView:(UIPickerView *)pickerView
+numberOfRowsInComponent:(NSInteger)component
+{
     
     // Check to see which default units mode is selected and update the component count
     if (self.preferences.defaultunits == 1) {
@@ -140,7 +146,8 @@
 
 #pragma mark PickerView Delegate
 
--(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row
+-(void)pickerView:(UIPickerView *)pickerView
+     didSelectRow:(NSInteger)row
       inComponent:(NSInteger)component
 {
     

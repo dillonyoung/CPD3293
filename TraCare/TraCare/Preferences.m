@@ -11,6 +11,7 @@
 
 @implementation Preferences
 
+// Synthesize the properties
 @dynamic bloodpressure;
 @dynamic defaultunits;
 @dynamic energy;

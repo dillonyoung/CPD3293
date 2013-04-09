@@ -12,6 +12,7 @@
 #import "Locations.h"
 #import "Entries.h"
 
+// Declare the segue name constants
 static NSString* const NewEntryFitnessActivityViewSegueIdentifier = @"New Entry Fitness Activity";
 static NSString* const NewEntryNutritionViewSegueIdentifier = @"New Entry Nutrition";
 static NSString* const NewEntrySymptomsViewSegueIdentifier = @"New Entry Symptoms";
@@ -25,6 +26,7 @@ static NSString* const NewEntrySymptomsTypeViewSegueIdentifier = @"New Entry Sym
     CLLocationManager *locationManager;
 }
 
+// Synthesize the properties
 @synthesize appDelegate = _appDelegate;
 @synthesize preferences = _preferences;
 @synthesize userdetails = _userdetails;
@@ -93,20 +95,25 @@ static NSString* const NewEntrySymptomsTypeViewSegueIdentifier = @"New Entry Sym
         [self changeWeight:self];
     }
     
+    // Set the text fields to a default value of blank
     self.currentSymptomDescription.text = @"";
     self.currentNutrition.text = @"";
     self.currentFitnessActivity.text = @"";
     
+    // Update the blood pressure display
     [self changeBloodPressureDiastolic:self];
     
+    // Update the symptom type display
     SymptomTypes *info = self.symptomtypes[0];
     self.currentSymptomType.text = info.symptomdesc;
     
+    // Configure the energy level stepper
     self.stepEnergyLevel.minimumValue = 0;
     self.stepEnergyLevel.maximumValue = [self.energyLevel count] - 1;
     self.stepEnergyLevel.value = 0;
     self.currentEnergyLevel.text = [self.energyLevel objectAtIndex:self.stepEnergyLevel.value];
     
+    // Configure the quality of sleep stepper
     self.stepQualitySleep.minimumValue = 0;
     self.stepQualitySleep.maximumValue = [self.qualitySleep count] - 1;
     self.stepQualitySleep.value = 0;
@@ -115,7 +122,7 @@ static NSString* const NewEntrySymptomsTypeViewSegueIdentifier = @"New Entry Sym
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    
+    // Check to see if locations should be tracked
     if (self.preferences.location) {
         
         // Initialize the location manager
@@ -142,12 +149,16 @@ static NSString* const NewEntrySymptomsTypeViewSegueIdentifier = @"New Entry Sym
 }
 
 
-- (IBAction)cancelEntry:(id)sender {
+- (IBAction)cancelEntry:(id)sender
+{
+    
+    // Return to the preview view
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)tableView:(UITableView *)tableView
+numberOfRowsInSection:(NSInteger)section
 {
     
     // Check to see which section is selected
@@ -257,7 +268,8 @@ static NSString* const NewEntrySymptomsTypeViewSegueIdentifier = @"New Entry Sym
     return  1;
 }
 
--(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+-(UIView*)tableView:(UITableView *)tableView
+viewForHeaderInSection:(NSInteger)section
 {
     
     // Check to see which section is selected
@@ -366,9 +378,9 @@ static NSString* const NewEntrySymptomsTypeViewSegueIdentifier = @"New Entry Sym
     return  nil;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+- (CGFloat)tableView:(UITableView *)tableView
+heightForHeaderInSection:(NSInteger)section
 {
-    
     
     // Check to see which section is selected
     switch (section) {
@@ -475,9 +487,9 @@ static NSString* const NewEntrySymptomsTypeViewSegueIdentifier = @"New Entry Sym
     return  32;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+-(CGFloat)tableView:(UITableView *)tableView
+heightForFooterInSection:(NSInteger)section
 {
-    
     
     // Check to see which section is selected
     switch (section) {
@@ -585,7 +597,8 @@ static NSString* const NewEntrySymptomsTypeViewSegueIdentifier = @"New Entry Sym
     return  32;
 }
 
--(UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+-(UIView*)tableView:(UITableView *)tableView
+viewForFooterInSection:(NSInteger)section
 {
     
     // Check to see which section is selected
@@ -694,14 +707,18 @@ static NSString* const NewEntrySymptomsTypeViewSegueIdentifier = @"New Entry Sym
     
     // Check to see which default units mode is currently selected
     if (self.preferences.defaultunits == 1) {
+        
+        // Update the display with the value from the weight stepper
         int pounds = (int)(self.stepWeight.value / 16.0);
-        int ounces = (int)(self.stepWeight.value - (pounds* 16));
+        int ounces = (int)(self.stepWeight.value - (pounds * 16));
         NSString *value = [NSString stringWithFormat:@"%d", pounds];
         value = [value stringByAppendingString:@" lbs "];
         value = [value stringByAppendingString:[NSString stringWithFormat:@"%d", ounces]];
         value = [value stringByAppendingString:@" oz"];
         self.currentWeight.text = value;
     } else {
+        
+        // Update the display with the value from the weight stepper
         int kilograms = (int)(self.stepWeight.value / 1000);
         int grams = (int)(self.stepWeight.value - (kilograms * 1000));
         NSString *value = [NSString stringWithFormat:@"%d", kilograms];
@@ -712,7 +729,8 @@ static NSString* const NewEntrySymptomsTypeViewSegueIdentifier = @"New Entry Sym
     }
 }
 
-- (IBAction)changeHours:(id)sender {
+- (IBAction)changeHours:(id)sender
+{
     
     // Update the hours of sleep
     NSString *value = [NSString stringWithFormat:@"%.01f", self.stepHours.value];
@@ -720,27 +738,40 @@ static NSString* const NewEntrySymptomsTypeViewSegueIdentifier = @"New Entry Sym
     self.currentHours.text = value;
 }
 
-- (IBAction)changeBloodPressureSystolic:(id)sender {
+- (IBAction)changeBloodPressureSystolic:(id)sender
+{
+    
+    // Update the blood pressure display
     [self updateBloodPressureDisplay];
 }
 
-- (IBAction)changeBloodPressureDiastolic:(id)sender {
+- (IBAction)changeBloodPressureDiastolic:(id)sender
+{
+    
+    // Update the blood pressure display
     [self updateBloodPressureDisplay];
 }
 
-- (IBAction)changeEnergyLevel:(id)sender {
+- (IBAction)changeEnergyLevel:(id)sender
+{
+    
+    // Update the energy level display
     self.currentEnergyLevel.text = [self.energyLevel objectAtIndex:self.stepEnergyLevel.value];
 }
 
-- (IBAction)changeQualitySleep:(id)sender {
+- (IBAction)changeQualitySleep:(id)sender
+{
+    
+    // Update the quality of sleep display
     self.currentQualitySleep.text = [self.qualitySleep objectAtIndex:self.stepQualitySleep.value];
 }
 
-- (IBAction)saveNewEntry:(id)sender {
+- (IBAction)saveNewEntry:(id)sender
+{
     
     NSError *error;
     
-    // Create a new locations instance
+    // Declare variables
     NSInteger locationIndex;
     
     // Check to see if the location should be saved
@@ -849,25 +880,33 @@ static NSString* const NewEntrySymptomsTypeViewSegueIdentifier = @"New Entry Sym
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
-- (NSInteger)checkForLocation:(CLLocation*)location {
+- (NSInteger)checkForLocation:(CLLocation*)location
+{
+    
+    // Declare variables
     NSInteger index = -1;
 
+    // Loop through the locations to check to see if the location already exists in the database
     for (int count = 0; count < [self.locations count]; count++) {
         if ([self.locations[count] latitude] == location.coordinate.latitude && [self.locations[count] longitude] == location.coordinate.longitude) {
             index = count;
         }
     }
     
+    // Return the index
     return index;
 }
 
-- (NSInteger)addNewLocation:(CLLocation*)location {
+- (NSInteger)addNewLocation:(CLLocation*)location
+{
     
     NSError *error;
     
     // Create a new location entry
-    Locations *newlocation = [NSEntityDescription insertNewObjectForEntityForName:@"Locations" inManagedObjectContext:[self managedObjectContext]];
+    Locations *newlocation = [NSEntityDescription insertNewObjectForEntityForName:@"Locations"
+                                                           inManagedObjectContext:[self managedObjectContext]];
     
+    // Update the location information
     newlocation.index = [self.locations count];
     newlocation.latitude = location.coordinate.latitude;
     newlocation.longitude = location.coordinate.longitude;
@@ -877,30 +916,38 @@ static NSString* const NewEntrySymptomsTypeViewSegueIdentifier = @"New Entry Sym
         NSLog(@"Cannot save data: %@", [error localizedDescription]);
     }
     
+    // Load the latest information from the database
     [self.appDelegate loadLocations];
     self.locations = self.appDelegate.locations;
 
+    // Return the 
     return [self.locations count] - 1;
 }
 
-/**
- * Hides the keyboard
- */
-- (IBAction)hideKeyboard:(id)sender {
+- (IBAction)hideKeyboard:(id)sender
+{
+    
+    // Hide the keyboard
     [self.view endEditing:YES];
 }
 
 
-- (void)updateBloodPressureDisplay {
+- (void)updateBloodPressureDisplay
+{
+    
+    // Get the values from the blood pressure steppers
     int systolic = self.stepBloodPressureSystolic.value;
     int diastolic = self.stepBloodPressureDiastolic.value;
+    
+    // Update the blood pressure display
     NSString *value = [NSString stringWithFormat:@"%d", systolic];
     value = [value stringByAppendingString:@" / "];
     value = [value stringByAppendingString:[NSString stringWithFormat:@"%d", diastolic]];
     self.currentBloodPressure.text = value;
 }
 
-- (void)textEntryHasChanged:(NSNotification*)notification {
+- (void)textEntryHasChanged:(NSNotification*)notification
+{
     
     // Get the dictionary
     NSDictionary *entryData = [notification userInfo];
@@ -915,7 +962,8 @@ static NSString* const NewEntrySymptomsTypeViewSegueIdentifier = @"New Entry Sym
     }
 }
 
-- (void)symptomTypeHasChanged:(NSNotification*)notification {
+- (void)symptomTypeHasChanged:(NSNotification*)notification
+{
     
     // Get the dictionary
     NSDictionary *entryData = [notification userInfo];
@@ -926,25 +974,35 @@ static NSString* const NewEntrySymptomsTypeViewSegueIdentifier = @"New Entry Sym
     self.currentSymptomType.text = info.symptomdesc;
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+- (void)prepareForSegue:(UIStoryboardSegue *)segue
+                 sender:(id)sender
+{
+    
+    // Check to see if the destination view is the fitness activity text view
     if ([segue.identifier isEqualToString:NewEntryFitnessActivityViewSegueIdentifier]) {
         TextEntryViewController* controller = segue.destinationViewController;
         NSMutableDictionary *entryData = [[NSMutableDictionary alloc] init];
         [entryData setObject:@"Fitness Activity" forKey:@"Field"];
         [entryData setObject:self.currentFitnessActivity.text forKey:@"Text"];
         controller.entryData = entryData;
+        
+    // Check to see if the destination view is the nutrition text view
     } else if ([segue.identifier isEqual:NewEntryNutritionViewSegueIdentifier]) {
         TextEntryViewController* controller = segue.destinationViewController;
         NSMutableDictionary *entryData = [[NSMutableDictionary alloc] init];
         [entryData setObject:@"Nutrition" forKey:@"Field"];
         [entryData setObject:self.currentNutrition.text forKey:@"Text"];
         controller.entryData = entryData;
+        
+    // Check to see if the destination view is the symptom description text view
     } else if ([segue.identifier isEqual:NewEntrySymptomsViewSegueIdentifier]) {
         TextEntryViewController* controller = segue.destinationViewController;
         NSMutableDictionary *entryData = [[NSMutableDictionary alloc] init];
         [entryData setObject:@"Symptoms" forKey:@"Field"];
         [entryData setObject:self.currentSymptomDescription.text forKey:@"Text"];
         controller.entryData = entryData;
+        
+    // Check to see if the destination view is the symptom type select view
     } else if ([segue.identifier isEqual:NewEntrySymptomsTypeViewSegueIdentifier]) {
         SymptomTypeViewController* controller = segue.destinationViewController;
         controller.symptomTypes = self.symptomtypes;
@@ -960,8 +1018,11 @@ static NSString* const NewEntrySymptomsTypeViewSegueIdentifier = @"New Entry Sym
 
 #pragma mark - Location Methods
 
-- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
-    NSLog(@"didFailWithError: %@", error);
+- (void)locationManager:(CLLocationManager *)manager
+       didFailWithError:(NSError *)error
+{
+    
+    NSLog(@"Location error: %@", error);
 
     // Remove all previous annotations
     for (id annotation in self.mapview.annotations) {
@@ -979,7 +1040,9 @@ static NSString* const NewEntrySymptomsTypeViewSegueIdentifier = @"New Entry Sym
     [self.mapview setRegion:adjustedRegion animated:YES];
 }
 
-- (void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+- (void) locationManager:(CLLocationManager *)manager
+      didUpdateLocations:(NSArray *)locations
+{
     
     // Loop through the locations
     for (int count = 0; count < [locations count]; count++) {

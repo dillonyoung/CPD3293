@@ -12,6 +12,7 @@
 
 @interface Preferences : NSManagedObject
 
+// Define the model properties
 @property (nonatomic) BOOL bloodpressure;
 @property (nonatomic) int16_t defaultunits;
 @property (nonatomic) BOOL energy;

@@ -16,6 +16,7 @@
     CLLocationManager *locationManager;
 }
 
+// Synthesize the properties
 @synthesize appDelegate = _appDelegate;
 @synthesize preferences = _preferences;
 @synthesize userdetails = _userdetails;
@@ -62,7 +63,8 @@
     locationManager.desiredAccuracy = kCLLocationAccuracyBest;
 }
 
-- (void)viewWillAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animated
+{
     
     // Load the entries
     [self.appDelegate loadEntries];
@@ -73,14 +75,21 @@
     self.locations = self.appDelegate.locations;
 }
 
-- (void)viewDidAppear:(BOOL)animated {
+- (void)viewDidAppear:(BOOL)animated
+{
     
     // Start tracking the user
     [locationManager startUpdatingLocation];
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
+- (void)viewWillDisappear:(BOOL)animated
+{
+    
+    // Stop tracking the location
     [locationManager stopUpdatingLocation];
+    
+    // Save the data
+    [self.appDelegate saveData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -92,8 +101,10 @@
 
 #pragma mark - Location Methods
 
-- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
-    NSLog(@"didFailWithError: %@", error);
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    
+    NSLog(@"Location error: %@", error);
     
     // Remove all previous annotations
     for (id annotation in self.mapview.annotations) {
@@ -111,7 +122,9 @@
     [self.mapview setRegion:adjustedRegion animated:YES];
 }
 
-- (void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+- (void) locationManager:(CLLocationManager *)manager
+      didUpdateLocations:(NSArray *)locations
+{
     
     // Loop through the locations
     for (int count = 0; count < [locations count]; count++) {
@@ -128,6 +141,8 @@
             Entries *entry = self.entries[ecount];
             
             if (entry.location >= 0) {
+                
+                // Get the current location
                 Locations *location = self.locations[entry.location];
             
                 if (location.latitude == 0 && location.longitude == 0) {
@@ -141,11 +156,14 @@
             
                     NSDate *date = [NSDate dateWithTimeIntervalSince1970:entry.dateentered];
                 
+                    // Create the map annotation
                     MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
                     point.coordinate = entryLocation;
                     point.title = [NSDateFormatter localizedStringFromDate:date
                                                              dateStyle:NSDateFormatterLongStyle
                                                              timeStyle:NSDateFormatterShortStyle];
+                    
+                    // Add the annotation to the map
                     [self.mapview addAnnotation:point];
                 }
             }
@@ -165,6 +183,7 @@
         [self.mapview setRegion:adjustedRegion animated:YES];
     }
     
+    // Stop the location tracking
     [locationManager stopUpdatingLocation];
 }
 

@@ -14,6 +14,7 @@
 
 @implementation SymptomTypeViewController
 
+// Synthesize the properties
 @synthesize symptomTypes = _symptomTypes;
 @synthesize symptomIndex = _symptomIndex;
 
@@ -33,7 +34,10 @@
 	// Do any additional setup after loading the view.
 }
 
-- (void)viewWillAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animated
+{
+    
+    // Set the picker view to the currently selected item
     [self.picker selectRow:self.symptomIndex inComponent:0 animated:NO];
 }
 
@@ -46,13 +50,17 @@
 
 #pragma mark PickerView DataSource
 
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
     
+    // Return the number of sections in the picker view
     return 1;
 }
 
-- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
     
+    // Return the number of elements in the picker
     return [self.symptomTypes count];
 }
 
@@ -72,9 +80,12 @@
       inComponent:(NSInteger)component
 {
     
+    // Create and send a notification that the symptom type has been changed
     NSMutableDictionary *newData = [[NSMutableDictionary alloc] init];
     [newData setObject:[NSNumber numberWithInteger:row] forKey:@"Symptom"];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"SymptomTypeHasChanged" object:self userInfo:newData];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"SymptomTypeHasChanged"
+                                                        object:self
+                                                      userInfo:newData];
 }
 
 

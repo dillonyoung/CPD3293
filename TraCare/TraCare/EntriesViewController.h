@@ -24,4 +24,7 @@
 @property (strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
+// Create a property to hold the selected index to be deleted
+@property (strong, nonatomic) NSIndexPath *deleteIndex;
+
 @end

@@ -11,6 +11,7 @@
 
 @implementation Entries
 
+// Synthesize the properties
 @dynamic bloodpressurediastolic;
 @dynamic bloodpressuresystolic;
 @dynamic dateentered;

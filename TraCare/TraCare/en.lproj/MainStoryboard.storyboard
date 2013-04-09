@@ -2064,7 +2064,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="wIf-Mr-pBB"/>
         <segue reference="6Pw-7M-frf"/>
+        <segue reference="wIf-Mr-pBB"/>
     </inferredMetricsTieBreakers>
 </document>

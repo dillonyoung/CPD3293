@@ -14,6 +14,7 @@
 
 @implementation DateSelectViewController
 
+// Synthesize the properties
 @synthesize entryData = _entryData;
 @synthesize startDate = _startDate;
 @synthesize endDate = _endDate;
@@ -33,12 +34,18 @@
 	// Do any additional setup after loading the view.
 }
 
-- (void)viewWillAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animated
+{
     
+    // Check to see which date field is to be updated
     if ([[self.entryData valueForKey:@"Field"] isEqual:@"Start"]) {
+        
+        // Update the start date
         [self.datePicker setMaximumDate:self.endDate];
         [self.datePicker setDate:self.startDate];
     } else if ([[self.entryData valueForKey:@"Field"] isEqual:@"End"]) {
+        
+        // Update the end date
         [self.datePicker setMinimumDate:self.startDate];
         [self.datePicker setDate:self.endDate];
     }
@@ -54,10 +61,13 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)dateChanged:(id)sender {
+- (IBAction)dateChanged:(id)sender
+{
     
+    // Get the date from the picker view
     NSDate *date = [self.datePicker date];
     
+    // Create and send a notification that the weight has been changed
     NSMutableDictionary *newData = [[NSMutableDictionary alloc] init];
     [newData setObject:[self.entryData valueForKey:@"Field"] forKey:@"Field"];
     [newData setObject:date forKey:@"Date"];

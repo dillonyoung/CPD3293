@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+#import "TCAppDelegate.h"
+
 @interface TabBarViewController : UITabBarController
+
+// Create the property for the app delegate reference
+@property (strong, nonatomic) TCAppDelegate *appDelegate;
 
 @end

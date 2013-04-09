@@ -12,10 +12,13 @@
 
 @interface EntryCell : UITableViewCell
 
+// Create the outlet for the date label
 @property (strong, nonatomic) IBOutlet UILabel *dateLabel;
 
+// Create the property for the time interval
 @property (assign, nonatomic) NSTimeInterval timeInterval;
 
+// Create the methods
 - (void)configureWithEntry:(Entries *)entry;
 
 @end

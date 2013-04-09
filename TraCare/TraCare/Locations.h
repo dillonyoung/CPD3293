@@ -12,6 +12,7 @@
 
 @interface Locations : NSManagedObject
 
+// Define the model properties
 @property (nonatomic) int16_t index;
 @property (nonatomic) double latitude;
 @property (nonatomic) double longitude;

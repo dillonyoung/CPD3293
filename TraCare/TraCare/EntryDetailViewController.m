@@ -14,6 +14,7 @@
 
 @implementation EntryDetailViewController
 
+// Synthesize the properties
 @synthesize appDelegate = _appDelegate;
 @synthesize preferences = _preferences;
 @synthesize userdetails = _userdetails;
@@ -161,8 +162,8 @@
     // Update the view title
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:self.entry.dateentered];
     self.title = [NSDateFormatter localizedStringFromDate:date
-                                                         dateStyle:NSDateFormatterShortStyle
-                                                         timeStyle:NSDateFormatterShortStyle];
+                                                dateStyle:NSDateFormatterShortStyle
+                                                timeStyle:NSDateFormatterShortStyle];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -184,9 +185,11 @@
             entryLocation.latitude = location.latitude;
             entryLocation.longitude = location.longitude;
         
+            // Create a map annotation
             MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
             point.coordinate = entryLocation;
         
+            // Add the map annotation to the map
             [self.currentMap addAnnotation:point];
         
             // Adjust the map zoom
@@ -204,12 +207,16 @@
 }
 
 
-- (IBAction)backToEntries:(id)sender {
+- (IBAction)backToEntries:(id)sender
+{
+    
+    // Go back to the previous view
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)tableView:(UITableView *)tableView
+ numberOfRowsInSection:(NSInteger)section
 {
     
     // Check to see which section is selected
@@ -319,7 +326,8 @@
     return  1;
 }
 
--(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+-(UIView*)tableView:(UITableView *)tableView
+viewForHeaderInSection:(NSInteger)section
 {
     
     // Check to see which section is selected
@@ -428,7 +436,8 @@
     return  nil;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+- (CGFloat)tableView:(UITableView *)tableView
+heightForHeaderInSection:(NSInteger)section
 {
     
     
@@ -537,7 +546,8 @@
     return  32;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+-(CGFloat)tableView:(UITableView *)tableView
+heightForFooterInSection:(NSInteger)section
 {
     
     
@@ -648,7 +658,8 @@
     return  32;
 }
 
--(UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+-(UIView*)tableView:(UITableView *)tableView
+viewForFooterInSection:(NSInteger)section
 {
     
     // Check to see which section is selected

@@ -12,6 +12,7 @@
 
 @implementation TCAppDelegate
 
+// Synthesize the properties
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
@@ -22,8 +23,14 @@
 @synthesize locations = _locations;
 @synthesize entries = _entries;
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+@synthesize firstRun = _firstRun;
+
+- (BOOL)application:(UIApplication *)application
+didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    // Set the default state for first run variable
+    self.firstRun = false;
     
     // Create the preferences entity if needed
     [self createPreferences];
@@ -49,7 +56,7 @@
     // Load the entries entity data
     [self loadEntries];
     
-    // Return YES
+
     return YES;
 }
 							
@@ -89,11 +96,9 @@
 
 #pragma mark - Core Data Stack
 
-/**
- * Get the managed object conect for the application
- */
 - (NSManagedObjectContext *)managedObjectContext
 {
+    
     // Check to see if the managed object context is set and return it
     if (_managedObjectContext != nil) {
         return _managedObjectContext;
@@ -112,11 +117,9 @@
     return _managedObjectContext;
 }
 
-/**
- * Returns the managed object model for the application
- */
 - (NSManagedObjectModel *)managedObjectModel
 {
+    
     // Check to see if the managed object model exists and return it
     if (_managedObjectModel != nil) {
         return _managedObjectModel;
@@ -132,12 +135,9 @@
     return _managedObjectModel;
 }
 
-
-/**
- * Returns the persistent store coordinator for the application
- */
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator
 {
+    
     // Check to see if the persistent store coordinator is set and return it
     if (_persistentStoreCoordinator != nil) {
         return _persistentStoreCoordinator;
@@ -164,38 +164,40 @@
 
 #pragma mark - Application's Documents directory
 
-/**
- * Get the document directory for the application
- */
 - (NSURL *)applicationDocumentsDirectory
 {
-    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+    
+    // Get the directory to store the data file
+    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory
+                                                   inDomains:NSUserDomainMask] lastObject];
 }
 
 
 #pragma mark - Preference Support
 
-/**
- * Creates the preferences entry in the data file if needed
- */
-- (void)createPreferences {
+- (void)createPreferences
+{
 
     // Prepare a fetch request for the preferences entity
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    [request setEntity: [NSEntityDescription entityForName: @"Preferences" inManagedObjectContext: [self managedObjectContext]]];
+    [request setEntity: [NSEntityDescription entityForName:@"Preferences"
+                                    inManagedObjectContext:[self managedObjectContext]]];
     
     // Get the count of entries in the preference entity
     NSError *errorCount = nil;
-    NSUInteger count = [[self managedObjectContext] countForFetchRequest: request error: &errorCount];
+    NSUInteger count = [[self managedObjectContext] countForFetchRequest:request
+                                                                   error:&errorCount];
     
     // Check to see if the number of entities is not equal to 1
     if (count != 1) {
         
         // Remove all entries from preferences entity
-        [self deleteAllObjectsWithEntityName:@"Preferences" inContext:[self managedObjectContext]];
+        [self deleteAllObjectsWithEntityName:@"Preferences"
+                                   inContext:[self managedObjectContext]];
     
         // Create a new preferences entity
-        Preferences *pref = [NSEntityDescription insertNewObjectForEntityForName:@"Preferences" inManagedObjectContext:[self managedObjectContext]];
+        Preferences *pref = [NSEntityDescription insertNewObjectForEntityForName:@"Preferences"
+                                                          inManagedObjectContext:[self managedObjectContext]];
         
         // Update the values of the preferences entity to the default values
         pref.weight = YES;
@@ -215,24 +217,27 @@
         if( ! [[self managedObjectContext] save:&error] ){
             NSLog(@"Cannot save data: %@", [error localizedDescription]);
         }
+        
+        self.firstRun = true;
     }
 }
 
-/**
- * Loads the preferences from the data file
- */
-- (void)loadPreferences {
+- (void)loadPreferences
+{
+    
     NSError *error;
     
     // Prepare a fetch request for the preference entity
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Preferences" inManagedObjectContext:[self managedObjectContext]];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Preferences"
+                                              inManagedObjectContext:[self managedObjectContext]];
     
     // Set the entity to the preferences entity
     [fetchRequest setEntity:entity];
     
     // Fetch the entries into an array
-    NSArray *fetchedObjects = [[self managedObjectContext] executeFetchRequest:fetchRequest error:&error];
+    NSArray *fetchedObjects = [[self managedObjectContext] executeFetchRequest:fetchRequest
+                                                                         error:&error];
     
     // Loop through the entries and store them in the preferences class
     for (Preferences *info in fetchedObjects) {
@@ -243,27 +248,29 @@
 
 #pragma mark - User Detail Support
 
-/**
- * Creates the user detail entry in the data file if needed
- */
-- (void)createUserDetails {
+- (void)createUserDetails
+{
     
     // Prepare a fetch request for the user details entity
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    [request setEntity: [NSEntityDescription entityForName: @"UserDetails" inManagedObjectContext: [self managedObjectContext]]];
+    [request setEntity: [NSEntityDescription entityForName:@"UserDetails"
+                                    inManagedObjectContext:[self managedObjectContext]]];
     
     // Get the count of entries in the user details entity
     NSError *errorCount = nil;
-    NSUInteger count = [[self managedObjectContext] countForFetchRequest: request error: &errorCount];
+    NSUInteger count = [[self managedObjectContext] countForFetchRequest:request
+                                                                   error:&errorCount];
     
     // Check to see if the number of entities is not equal to 1
     if (count != 1) {
         
         // Remove all entries from user details entity
-        [self deleteAllObjectsWithEntityName:@"UserDetails" inContext:[self managedObjectContext]];
+        [self deleteAllObjectsWithEntityName:@"UserDetails"
+                                   inContext:[self managedObjectContext]];
         
         // Create a new user details entity
-        UserDetails *userdetails = [NSEntityDescription insertNewObjectForEntityForName:@"UserDetails" inManagedObjectContext:[self managedObjectContext]];
+        UserDetails *userdetails = [NSEntityDescription insertNewObjectForEntityForName:@"UserDetails"
+                                                                 inManagedObjectContext:[self managedObjectContext]];
         
         // Update the values of the user details entity to the default values
         userdetails.name = @"User";
@@ -280,21 +287,22 @@
     }
 }
 
-/**
- * Loads the user details from the data file
- */
-- (void)loadUserDetails {
+- (void)loadUserDetails
+{
+    
     NSError *error;
     
     // Prepare a fetch request for the user details entity
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"UserDetails" inManagedObjectContext:[self managedObjectContext]];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"UserDetails"
+                                              inManagedObjectContext:[self managedObjectContext]];
     
     // Set the entity to the user details entity
     [fetchRequest setEntity:entity];
     
     // Fetch the entries into an array
-    NSArray *fetchedObjects = [[self managedObjectContext] executeFetchRequest:fetchRequest error:&error];
+    NSArray *fetchedObjects = [[self managedObjectContext] executeFetchRequest:fetchRequest
+                                                                         error:&error];
     
     // Loop through the entries and store them in the preferences class
     for (UserDetails *info in fetchedObjects) {
@@ -305,14 +313,13 @@
 
 #pragma mark - Symptom Type Support
 
-/**
- * Creates the symptom type entry in the data file if needed
- */
-- (void)createSymptomTypes {
+- (void)createSymptomTypes
+{
     
     // Prepare a fetch request for the symptom types entity
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    [request setEntity: [NSEntityDescription entityForName: @"SymptomTypes" inManagedObjectContext: [self managedObjectContext]]];
+    [request setEntity: [NSEntityDescription entityForName:@"SymptomTypes"
+                                    inManagedObjectContext:[self managedObjectContext]]];
     
     // Initialize the symptom types array
     NSArray *stypes = [[NSArray alloc] initWithObjects:@"Not Specified", @"Other", @"Abdominal Pain", @"Chest Pain", @"Constipation", @"Cought", @"Diarrea", @"Dizziness", @"Eye Discomfort", @"Foot Pain", @"Headaches", @"Hip Pain", @"Knee Pain", @"Low Back Pain", @"Nasal Congestion", @"Nausea", @"Neck Pain", @"Numbness", @"Shortness of Breath", @"Shoulder Pain", @"Sore Throat", @"Vision Problems", @"Wheezing", nil];
@@ -324,12 +331,14 @@
             
         NSError *error;
             
-        if ([[self managedObjectContext] countForFetchRequest:request error:&error]) {
+        if ([[self managedObjectContext] countForFetchRequest:request
+                                                        error:&error]) {
                 
         } else {
              
             // Create a new symptom types entity
-            SymptomTypes *newsymptom = [NSEntityDescription insertNewObjectForEntityForName:@"SymptomTypes" inManagedObjectContext:[self managedObjectContext]];
+            SymptomTypes *newsymptom = [NSEntityDescription insertNewObjectForEntityForName:@"SymptomTypes"
+                                                                     inManagedObjectContext:[self managedObjectContext]];
                 
             // Update the values of the symptom types entity to the default values
             newsymptom.id = 1;
@@ -343,23 +352,24 @@
     }
 }
 
-/**
- * Loads the symptom types from the data file
- */
-- (void)loadSymptomTypes {
+- (void)loadSymptomTypes
+{
+    
     NSError *error;
     
     [self.symptomtypes removeAllObjects];
     
     // Prepare a fetch request for the symptom types entity
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"SymptomTypes" inManagedObjectContext:[self managedObjectContext]];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"SymptomTypes"
+                                              inManagedObjectContext:[self managedObjectContext]];
     
     // Set the entity to the symptom types entity
     [fetchRequest setEntity:entity];
     
     // Fetch the entries into an array
-    NSArray *fetchedObjects = [[self managedObjectContext] executeFetchRequest:fetchRequest error:&error];
+    NSArray *fetchedObjects = [[self managedObjectContext] executeFetchRequest:fetchRequest
+                                                                         error:&error];
     
     // Loop through the entries and store them in the symptom types class
     self.symptomtypes = [[NSMutableArray alloc] init];
@@ -371,23 +381,24 @@
 
 #pragma mark - Location Support
 
-/**
- * Loads the locations from the data file
- */
-- (void)loadLocations {
+- (void)loadLocations
+{
+    
     NSError *error;
     
     [self.locations removeAllObjects];
     
     // Prepare a fetch request for the locations entity
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Locations" inManagedObjectContext:[self managedObjectContext]];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Locations"
+                                              inManagedObjectContext:[self managedObjectContext]];
     
     // Set the entity to the locations entity
     [fetchRequest setEntity:entity];
     
     // Fetch the entries into an array
-    NSArray *fetchedObjects = [[self managedObjectContext] executeFetchRequest:fetchRequest error:&error];
+    NSArray *fetchedObjects = [[self managedObjectContext] executeFetchRequest:fetchRequest
+                                                                         error:&error];
     
     // Loop through the entries and store them in the locations class
     self.locations = [[NSMutableArray alloc] init];
@@ -399,23 +410,24 @@
 
 #pragma mark - Entries Support
 
-/**
- * Loads the entries from the data file
- */
-- (void)loadEntries {
+- (void)loadEntries
+{
+    
     NSError *error;
     
     [self.entries removeAllObjects];
     
     // Prepare a fetch request for the entries entity
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Entries" inManagedObjectContext:[self managedObjectContext]];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Entries"
+                                              inManagedObjectContext:[self managedObjectContext]];
     
     // Set the entity to the entries entity
     [fetchRequest setEntity:entity];
     
     // Fetch the entries into an array
-    NSArray *fetchedObjects = [[self managedObjectContext] executeFetchRequest:fetchRequest error:&error];
+    NSArray *fetchedObjects = [[self managedObjectContext] executeFetchRequest:fetchRequest
+                                                                         error:&error];
     
     // Loop through the entries and store them in the locations class
     self.entries = [[NSMutableArray alloc] init];
@@ -427,28 +439,23 @@
 
 #pragma mark - Shared Methods
 
-/**
- * Save the data to the data file
- */
 - (void)saveData
 {
-    NSError *error = nil;
     
+    NSError *error = nil;
+
     // Check to see if the entity has changed and attempt to save the changes
     if ([self managedObjectContext] != nil) {
         if ([[self managedObjectContext] hasChanges] && ![[self managedObjectContext] save:&error]) {
             NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         }
     }
-    NSLog(@"Saving");
 }
 
-/**
- * Delete all of the entries for a given an entity name
- */
 - (void)deleteAllObjectsWithEntityName:(NSString *)entityName
                              inContext:(NSManagedObjectContext *)context
 {
+    
     // Prepare a fetch request for the select entity
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:entityName];
     fetchRequest.includesPropertyValues = NO;
@@ -462,7 +469,6 @@
     // Loop through the entries and delete them
     for (NSManagedObject *managedObject in items) {
         [context deleteObject:managedObject];
-        NSLog(@"Deleted %@", entityName);
     }
 }
 @end
