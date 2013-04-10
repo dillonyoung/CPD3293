@@ -61,6 +61,7 @@ static NSString* const EntryDetailViewSegueIdentifier = @"Entry Detail View";
     
     [super viewDidLoad];
     
+    // Pull down to refresh based off of: http://www.intertech.com/Blog/Post/iOS-6-Pull-to-Refresh-(UIRefreshControl).aspx
     // Configure the pull down to refresh
     UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
     refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull Down to Refresh"];

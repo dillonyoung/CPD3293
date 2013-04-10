@@ -55,6 +55,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    // Location data based of off: http://www.highoncoding.com/Articles/804_Introduction_to_MapKit_Framework_for_iPhone_Development.aspx
     // Initialize the location manager
     locationManager = [[CLLocationManager alloc] init];
     

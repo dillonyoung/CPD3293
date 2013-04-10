@@ -33,9 +33,6 @@
 		516A551C171363A600597DA5 /* TCLaunch.png in Resources */ = {isa = PBXBuildFile; fileRef = 516A5519171363A600597DA5 /* TCLaunch.png */; };
 		516A551D171363A600597DA5 /* TCLaunch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 516A551A171363A600597DA5 /* TCLaunch@2x.png */; };
 		516A551E171363A600597DA5 /* TCLaunchRetina.png in Resources */ = {isa = PBXBuildFile; fileRef = 516A551B171363A600597DA5 /* TCLaunchRetina.png */; };
-		516A5520171363B600597DA5 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 516A551F171363B600597DA5 /* Default.png */; };
-		516A5522171363BE00597DA5 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 516A5521171363BE00597DA5 /* Default@2x.png */; };
-		516A5524171363C700597DA5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 516A5523171363C700597DA5 /* Default-568h@2x.png */; };
 		516A55261713771A00597DA5 /* TCLaunch-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 516A55251713771A00597DA5 /* TCLaunch-568h@2x.png */; };
 		516A66FA1705E38A00E309BC /* TextEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 516A66F91705E38A00E309BC /* TextEntryViewController.m */; };
 		516A670017060CC300E309BC /* SymptomTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 516A66FF17060CC300E309BC /* SymptomTypeViewController.m */; };
@@ -491,9 +488,6 @@
 				516A551C171363A600597DA5 /* TCLaunch.png in Resources */,
 				516A551D171363A600597DA5 /* TCLaunch@2x.png in Resources */,
 				516A551E171363A600597DA5 /* TCLaunchRetina.png in Resources */,
-				516A5520171363B600597DA5 /* Default.png in Resources */,
-				516A5522171363BE00597DA5 /* Default@2x.png in Resources */,
-				516A5524171363C700597DA5 /* Default-568h@2x.png in Resources */,
 				516A55261713771A00597DA5 /* TCLaunch-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
